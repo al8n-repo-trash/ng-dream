@@ -1,0 +1,15 @@
+<div class="example-viewer-container">
+  <div class="example-viewer-wrapper">
+    <div class="example-viewer-title-container">
+      <div class="example-viewer-title">{{exampleName}}</div>
+      <button >&lt;&gt;</button>
+    </div>
+    <div class="example-viewer-source-container">
+      <ng-content select="nd-tabs"></ng-content>
+    </div>
+    <div class="example-viewer-body-container">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+

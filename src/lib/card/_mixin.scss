@@ -1,0 +1,81 @@
+
+
+@mixin card-header-base($direction, $justify, $border-bottom) {
+  flex-direction: $direction;
+  display: flex;
+  width: calc(100% - (#{$nd-card-footer-padding-x-large} * 2));
+  padding: $nd-card-header-padding-y-large $nd-card-header-padding-x-large;
+  border-bottom: $border-bottom;
+  justify-content: $justify;
+  align-items: center;
+  @media only screen and (max-width: $breakpoint-medium) {
+    padding: $nd-card-header-padding-y-medium $nd-card-header-padding-x-medium;
+  }
+}
+
+@mixin card-header-text($font-family) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: $font-family;
+  align-items: center;
+}
+
+@mixin card-avatar-basic($border-radius) {
+  height: $nd-card-header-size;
+  width: $nd-card-header-size;
+  border-radius: $border-radius;
+  flex-shrink: 0;
+  background: transparent;
+  margin: inherit;
+  object-fit: cover;
+
+  img {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+}
+
+@mixin card-title {
+  color: $nd-card-title-font-color;
+  font-size: $nd-card-title-font-size;
+  font-weight: $nd-card-title-font-weight;
+  font-family: $nd-global-font-family-1;
+  line-height: $nd-card-header-text-line-height;
+}
+
+@mixin card-subtitle {
+  color: $nd-card-subtitle-font-color;
+  font-size: $nd-card-subtitle-font-size;
+  line-height: $nd-card-header-text-line-height;
+}
+
+@mixin card-body-base {
+  width: calc(100% - (#{$nd-card-content-padding-x-large} * 2));
+  padding: $nd-card-content-padding-y-large $nd-card-content-padding-x-large;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: $nd-card-font-color;
+  align-items: flex-start;
+  font-family: $nd-global-font-family-2;
+  line-height: $nd-card-header-text-line-height;
+  @media only screen and (max-width: $breakpoint-medium) {
+    padding: $nd-card-content-padding-y-medium $nd-card-content-padding-x-medium;
+  }
+}
+
+@mixin card-footer-base {
+  min-height: $nd-card-footer-height;
+  height: auto;
+  width: calc(100% - (#{$nd-card-footer-padding-x-large} * 2));
+  padding: $nd-card-footer-padding-y-large $nd-card-footer-padding-x-large 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  @media only screen and (max-width: $breakpoint-medium) {
+    padding: $nd-card-footer-padding-y-medium $nd-card-footer-padding-x-medium 20px;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="nd-sider-btn-open" *ngIf="!show" (click)="showMenu()">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+<div class="nd-sider-btn-close" *ngIf="show" (click)="showMenu()">
+  <span class="nd-icon nd-icon-close"></span>
+</div>
+<ng-content></ng-content>

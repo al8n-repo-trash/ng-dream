@@ -1,0 +1,123 @@
+@import "../mixin";
+
+$nd-banner-fade-nav-background-line: #8c8c8c !default;
+$nd-banner-fade-nav-inner-background-line: white !default;
+$nd-banner-fade-nav-margin-line: 0 10px !default;
+$nd-banner-fade-nav-height-line: 2px !default;
+$nd-banner-fade-nav-width-line: 4% !default;
+$nd-banner-fade-nav-line-height-line: 1.4 !default;
+
+$nd-banner-fade-nav-background-dots: #8c8c8c !default;
+$nd-banner-fade-nav-inner-background-dots: white !default;
+$nd-banner-fade-nav-margin-dots: 0 10px !default;
+$nd-banner-fade-nav-height-dots: 10px !default;
+$nd-banner-fade-nav-width-dots: 10px !default;
+$nd-banner-fade-nav-line-height-dots: 1.4 !default;
+
+.nd-banner-fade {
+  @include outer-container-base;
+
+  .nd-banner-prev {
+    @include nd-banner-nav-base;
+    font-weight: 200;
+    transform: scale(1, 4);
+    opacity: 0;
+    left: 0;
+
+  }
+
+  .nd-banner-next {
+    @include nd-banner-nav-base;
+    font-weight: 200;
+    transform: scale(1, 4);
+    opacity: 0;
+    border-radius: 3px 0 0 3px;
+    right: 0;
+  }
+
+
+
+  &:hover {
+    .nd-banner-next, .nd-banner-prev {
+      opacity: 1;
+    }
+  }
+
+  > section {
+    @include section-base;
+
+    .nd-banner-container {
+      @include content-wrapper-base;
+
+      .nd-banner-img-container {
+        @include banner-img-container-base;
+        position: absolute;
+        opacity: 0;
+        z-index: 0;
+        min-width: 100%;
+        transition: 1s opacity ease!important;
+      }
+      .nd-banner-img-container-active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+    }
+  }
+
+  .nd-banner-fade-nav-line-container {
+    @include banner-bottom-nav-container-base;
+    .nd-banner-fade-nav {
+      margin: $nd-banner-fade-nav-margin-line;
+      background: $nd-banner-fade-nav-background-line;
+      line-height: $nd-banner-fade-nav-line-height-line;
+      height: $nd-banner-fade-nav-height-line;
+      font-size: 14px;
+      width: $nd-banner-fade-nav-width-line;
+
+      > .line-span {
+        height: $nd-banner-fade-nav-height-line;
+      }
+    }
+  }
+
+  .nd-banner-fade-nav-dots-container {
+    @include banner-bottom-nav-container-base;
+
+    .nd-banner-fade-nav {
+      margin: $nd-banner-fade-nav-margin-dots;
+      background: transparent;
+      line-height: $nd-banner-fade-nav-line-height-dots;
+      height: $nd-banner-fade-nav-height-dots;
+      font-size: 14px;
+      width: $nd-banner-fade-nav-width-dots;
+      border-radius: 50%;
+
+      > .dots {
+        z-index: 6;
+        height: $nd-banner-fade-nav-height-dots;
+        width: $nd-banner-fade-nav-width-dots;
+        border-radius: inherit;
+        background: #ffffff;
+        opacity: .5;
+        transition: all .4s ease-in-out;
+      }
+
+      > .dots-active {
+        transform: scale(1.2, 1.2);
+        opacity: .7;
+      }
+    }
+  }
+}
+
+@keyframes progressBar {
+  0% {
+    width: 0;
+    background: $nd-banner-fade-nav-inner-background-line;
+  }
+  100% {
+    width: 100%;
+    background: $nd-banner-fade-nav-inner-background-line;
+  }
+}

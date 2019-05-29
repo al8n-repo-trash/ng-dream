@@ -1,0 +1,76 @@
+$nd-slider-gallery-background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.65))!default;
+$nd-slider-gallery-border-radius: 0 0 4px 4px!default;
+$nd-slider-gallery-transition: all .4s ease-in-out!default;
+$nd-slider-gallery-transform: translateX(-50%)!default;
+$nd-slider-gallery-ul-padding: 14px 7px!default;
+$nd-slider-gallery-li-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 6px rgba(0, 0, 0, 0.5)!default;
+$nd-slider-gallery-li-border-radius: 4px!default;
+$nd-slider-gallery-li-margin: 0 7px!default;
+
+
+.nd-slider-gallery {
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  transform: $nd-slider-gallery-transform;
+  background: $nd-slider-gallery-background;
+  border-radius: $nd-slider-gallery-border-radius;
+  transition: $nd-slider-gallery-transition;
+  display: flex;
+  flex-direction: column;
+
+
+  > .nd-slider-gallery-ul {
+    list-style: none;
+    margin: 0;
+    padding: $nd-slider-gallery-ul-padding;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    > .nd-slider-gallery-li {
+      display: inline-block;
+      position: relative;
+      margin: $nd-slider-gallery-li-margin;
+      min-width: 50px;
+      min-height: 35px;
+      border-radius: $nd-slider-gallery-li-border-radius;
+      box-shadow: $nd-slider-gallery-li-box-shadow;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: border-box;
+
+      &::before {
+        content: '';
+        position: absolute;
+        border-radius: 4px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid transparent;
+        transition-duration: .5s;
+        box-sizing: border-box;
+      }
+
+      &.is-current {
+        &::before {
+          border-color: #ffffff;
+        }
+      }
+
+      &:not(.is-current) {
+        cursor: pointer;
+        &:hover {
+
+          &::before {
+            border-color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

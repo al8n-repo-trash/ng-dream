@@ -1,0 +1,138 @@
+@import "../../../variables";
+
+.nd-tab-label-disabled {
+  cursor: not-allowed!important;
+  color: $nd-disabled-color;
+  @include user-select(none);
+  .nd-ripple {
+    display: none;
+  }
+}
+
+@mixin nd-tab-label-horizontal-base {
+  .nd-tab-label {
+    @include tab-label;
+    height: $tab-label-horizontal-height;
+    min-width: $tab-label-min-width;
+  }
+
+  .nd-tab-label-fixed {
+    width: $tab-label-width-fixed;
+    height: auto;
+    min-height: $tab-label-horizontal-height;;
+    min-width: $tab-label-width-fixed;
+    .nd-tab-label-content {
+      white-space: normal;
+    }
+  }
+
+  .nd-tab-label-small {
+    height: $tab-label-small-horizontal-height;
+    padding: $tab-label-small-padding-x;
+    min-width: $tab-label-small-horizontal-min-width;
+    .nd-tab-label-content {
+      font-size: $tab-label-small-font-size;
+    }
+  }
+
+  .nd-tab-label-small-fixed {
+    min-height: $tab-label-small-horizontal-height;
+    padding: $tab-label-small-padding-x;
+    width: $tab-label-small-width-fixed;
+    height: auto;
+    min-width: $tab-label-small-width-fixed;
+    .nd-tab-label-content {
+      font-size: $tab-label-small-font-size;
+      white-space: normal;
+    }
+  }
+
+  .nd-tab-label-large {
+    height: $tab-label-large-horizontal-height;
+    padding: $tab-label-large-padding-x;
+    min-width: $tab-label-large-horizontal-min-width;
+
+    .nd-tab-label-content {
+      font-size: $tab-label-large-font-size;
+    }
+  }
+
+  .nd-tab-label-large-fixed {
+    min-height: $tab-label-large-horizontal-height;
+    padding: $tab-label-large-padding-x;
+    width: $tab-label-large-width-fixed;
+    min-width: $tab-label-large-width-fixed;
+    height: auto;
+
+    .nd-tab-label-content {
+      font-size: $tab-label-large-font-size;
+      white-space: normal;
+    }
+  }
+}
+
+.nd-tabs-position-top, .nd-tabs-position-bottom {
+  @include nd-tab-label-horizontal-base;
+}
+
+
+@mixin nd-tab-label-vertical-base {
+  .nd-tab-label {
+    @include tab-label;
+    @include nd-tab-label-vertical;
+  }
+
+  .nd-tab-label-fixed {
+    width: $tab-label-width-fixed;
+    min-height: $tab-label-horizontal-height;
+    min-width: $tab-label-width-fixed;
+    .nd-tab-label-content {
+      white-space: normal;
+    }
+  }
+
+  .nd-tab-label-small {
+    min-height: $tab-label-small-vertical-height;
+    padding: $tab-label-small-padding-x;
+    min-width: $tab-label-small-vertical-min-width;
+    .nd-tab-label-content {
+      font-size: $tab-label-small-font-size;
+    }
+  }
+
+  .nd-tab-label-small-fixed {
+    min-height: $tab-label-small-vertical-height;
+    padding: $tab-label-small-padding-x;
+    width: $tab-label-small-width-fixed;
+    min-width: $tab-label-small-width-fixed;
+    .nd-tab-label-content {
+      font-size: $tab-label-small-font-size;
+      white-space: normal;
+    }
+  }
+
+  .nd-tab-label-large {
+    height: $tab-label-large-vertical-height;
+    padding: $tab-label-large-padding-x;
+    min-width: $tab-label-large-vertical-min-width;
+    .nd-tab-label-content {
+      font-size: $tab-label-large-font-size;
+    }
+  }
+
+  .nd-tab-label-large-fixed {
+    min-height: $tab-label-large-vertical-height;
+    padding: $tab-label-large-padding-x;
+    width: $tab-label-large-width-fixed;
+    min-width: $tab-label-large-width-fixed;
+    .nd-tab-label-content {
+      font-size: $tab-label-large-font-size;
+      white-space: normal;
+    }
+  }
+}
+
+.nd-tabs-position-left, .nd-tabs-position-right {
+  @include nd-tab-label-vertical-base
+}
+

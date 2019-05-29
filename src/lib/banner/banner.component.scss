@@ -1,0 +1,93 @@
+$nd-banner-transition: all .4s ease-in-out;
+$nd-banner-item-transition-duration: .8s !default;
+
+.nd-banner {
+  position: relative;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  box-sizing: border-box;
+
+  > section {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: inherit;
+    .nd-banner-container {
+      position: relative;
+      width: 100%;
+      height: inherit;
+      box-shadow: 0 0 6px rgba(0,0,0, .2), 0 0 20px rgba(0,0,0, .2);
+      overflow: hidden;
+      margin: auto;
+
+      > ul {
+        top: 0;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: table;
+        white-space: nowrap;
+        box-sizing: border-box;
+        width: 100%;
+        height: inherit;
+        transition: all .8s ease-in-out;
+
+        > li {
+          display: inline-table;
+          height: inherit;
+          width: 100%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      > .nd-banner-item-container {
+        top: 0;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: table;
+        white-space: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: inherit;
+        height: inherit;
+        transition-duration: $nd-banner-item-transition-duration;
+        box-sizing: border-box;
+
+        .nd-banner-img-container {
+          display: inline-block;
+          height: inherit;
+          justify-content: center;
+          align-items: center;
+          vertical-align: middle;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+          text-align: center;
+
+          img {
+            width: 100%;
+            height: inherit;
+            display: block;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+
+
+

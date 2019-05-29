@@ -1,0 +1,131 @@
+@import "../../../core/variables";
+@import "../../../core/ripple/ripple";
+$wrapper-padding-left-default: 30px!default;
+$wrapper-padding-right-default: 16px!default;
+$wrapper-padding-top-default: 10px!default;
+$menu-item-height-default: 40px!default;
+$menu-item-font-family-default: Avenir,"Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"!default;
+$menu-item-margin-default: 0 0 0 0!default;
+$menu-item-padding-left-default: 0;
+
+$menu-item-padding-default: 8px 0 8px $menu-item-padding-left-default!default;
+$menu-item-padding-y-default: 8px!default;
+$menu-item-font-size-default: 14px!default;
+$menu-item-transition-default: color 0.2s ease-in-out!default;
+$menu-item-opacity-default: 1!default;
+$menu-item-icon-width-default: 18px!default;
+$menu-item-icon-height-default: 18px!default;
+$menu-item-icon-font-size-default: 16px!default;
+$menu-item-icon-color-default: #314659!default;
+$menu-item-last-child-default: 0 0 10px 0!default;
+$menu-item-hover-animation-a-default: color 0.2s ease-in-out, border-right 0.2s ease-out, background-color 0.2s ease-in !default;
+$menu-item-background-default: #ffffff;
+$menu-item-background-active-default: lighten($nd-color-1, 20%);//#e6f7ff;
+$menu-wrapper-animation-default: gary .5s ease-in !default;
+$menu-item-active-border-right-default: 3px solid $nd-color-1 !default;
+$menu-title-font-size-default: 14px!default;
+$menu-title-color-default: #999999!default;
+$menu-title-padding-left-default: 15px!default;
+$menu-item-border-right-width: 3px!default;
+
+@keyframes gary{
+  0%{transform:scale(1,0);}
+  25%{transform:scale(1,1.2);}
+  50%{transform:scale(1,0.85);}
+  75%{transform:scale(1,1.05);}
+  100%{transform:scale(1,1);}
+};
+
+$menu-wrapper-transition-default: all .3s ease-in !default;
+$menu-wrapper-transform-origin-default: 50% 0 !default;
+@mixin sider-menu-item($item-color, $svg-color, $background) {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: calc(#{$menu-item-height-default} - #{$menu-item-padding-y-default} * 2);
+  background: $background;
+  border-right: none;
+  font-family: $menu-item-font-family-default;
+  font-weight: bold;
+  align-items: center;
+  margin: $menu-item-margin-default;
+  padding: $menu-item-padding-default;
+  justify-content: flex-start;
+  text-align: start;
+  color: $item-color;
+  position: relative;
+  font-size: $menu-item-font-size-default;
+  transition: $menu-item-transition-default;
+  opacity: $menu-item-opacity-default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .nd-icon {
+    position: absolute;
+    width: $menu-item-icon-width-default;
+    height: $menu-item-icon-height-default;
+    font-size: $menu-item-icon-font-size-default;
+    color: $svg-color;
+    right: 10px;
+  }
+
+
+  &:hover {
+    color: $nd-color-1 !important;
+
+    span {
+      color: $nd-color-1 !important;
+    }
+  }
+
+}
+
+@mixin sider-menu-a-default {
+  a {
+    width: calc(100% - #{$wrapper-padding-left-default} - 3px);
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: $wrapper-padding-left-default;
+    justify-content: flex-start;
+    line-height: $menu-item-height-default;
+    height: $menu-item-height-default;
+    text-decoration: none;
+    color: inherit;
+    text-align: start;
+    background: inherit;
+    overflow-y: hidden;
+    display: flex;
+    -webkit-transition: $menu-item-hover-animation-a-default;
+    -moz-transition: $menu-item-hover-animation-a-default;
+    -ms-transition: $menu-item-hover-animation-a-default;
+    -o-transition: $menu-item-hover-animation-a-default;
+    transition: $menu-item-hover-animation-a-default;
+  }
+
+  a:hover {
+    color: $nd-color-1;
+  }
+}
+
+.nd-sider-menu-default {
+
+}
+
+@mixin sider-menu-title-base {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  font-size: $menu-title-font-size-default;
+  font-family: $menu-item-font-family-default;
+  color: $menu-title-color-default;
+}

@@ -1,0 +1,219 @@
+@import "../core/functions/base";
+@import "../core/variables";
+
+article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nd-default-gutter {
+  margin: 0;
+}
+
+@for $i from 1 through 24 {
+  .nd-col-#{$i} {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    width: rowSegment($i);
+  }
+
+  .nd-col-xs-#{$i} {
+    @media only screen and (max-width: $breakpoint-small - 1) {
+      @include col($i);
+    }
+  }
+
+  .nd-col-sm-#{$i} {
+    @media only screen and (min-width: $breakpoint-small) {
+      @include col($i);
+    }
+  }
+
+  .nd-col-md-#{$i} {
+    @media only screen and (min-width: $breakpoint-medium) {
+      @include col($i);
+    }
+  }
+
+  .nd-col-lg-#{$i} {
+    @media only screen and (min-width: $breakpoint-large) {
+      @include col($i);
+    }
+  }
+
+  .nd-col-xl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xlarge) {
+      @include col($i);
+    }
+  }
+
+  .nd-col-xxl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xxlarge) {
+      @include col($i);
+    }
+  }
+
+  .nd-col-offset-#{$i} {
+    margin-left: rowSegment($i);
+  }
+
+  .nd-col-offset-xs-#{$i} {
+    @media only screen and (max-width: $breakpoint-small - 1) {
+      @include colOffset($i);
+    }
+  }
+
+  .nd-col-offset-sm-#{$i} {
+    @media only screen and (min-width: $breakpoint-small ) {
+      @include colOffset($i);
+    }
+  }
+
+  .nd-col-offset-md-#{$i} {
+    @media only screen and (min-width: $breakpoint-medium ) {
+      @include colOffset($i);
+    }
+  }
+
+  .nd-col-offset-lg-#{$i} {
+    @media only screen and (min-width: $breakpoint-large ) {
+      @include colOffset($i);
+    }
+  }
+
+  .nd-col-offset-xl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xlarge ) {
+      @include colOffset($i);
+    }
+  }
+
+  .nd-col-offset-xxl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xxlarge ) {
+      @include colOffset($i);
+    }
+  }
+
+  .nd-col-pull-#{$i} {
+    float: right;
+    right: rowSegment($i);
+  }
+
+  .nd-col-pull-xs-#{$i} {
+    @media only screen and (max-width: $breakpoint-small - 1) {
+      @include colPull($i);
+    }
+  }
+
+  .nd-col-pull-sm-#{$i} {
+    @media only screen and (min-width: $breakpoint-small) {
+      @include colPull($i);
+    }
+  }
+
+  .nd-col-pull-md-#{$i} {
+    @media only screen and (min-width: $breakpoint-medium ) {
+      @include colPull($i);
+    }
+  }
+
+  .nd-col-pull-lg-#{$i} {
+    @media only screen and (min-width: $breakpoint-large ) {
+      @include colPull($i);
+    }
+  }
+
+  .nd-col-pull-xl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xlarge ) {
+      @include colPull($i);
+    }
+  }
+
+  .nd-col-pull-xxl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xxlarge ) {
+      @include colPull($i);
+    }
+  }
+
+  .nd-col-push-#{$i} {
+    float: left;
+    left: rowSegment($i);
+  }
+
+  .nd-col-push-xs-#{$i} {
+    @media only screen and (max-width: $breakpoint-small - 1) {
+      @include colPush($i);
+    }
+  }
+
+  .nd-col-push-sm-#{$i} {
+    @media only screen and (min-width: $breakpoint-small) {
+      @include colPush($i);
+    }
+  }
+
+  .nd-col-push-md-#{$i} {
+    @media only screen and (min-width: $breakpoint-medium ) {
+      @include colPush($i);
+    }
+  }
+
+  .nd-col-push-lg-#{$i} {
+    @media only screen and (min-width: $breakpoint-large ) {
+      @include colPush($i);
+    }
+  }
+
+  .nd-col-push-xl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xlarge ) {
+      @include colPush($i);
+    }
+  }
+
+  .nd-col-push-xxl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xxlarge ) {
+      @include colPush($i);
+    }
+  }
+
+  .nd-col-order-#{$i} {
+    order: $i;
+  }
+
+  .nd-col-order-xs-#{$i} {
+    @media only screen and (max-width: $breakpoint-small - 1 ) {
+      order: $i !important;
+    }
+  }
+
+  .nd-col-order-sm-#{$i} {
+    @media only screen and (min-width: $breakpoint-small ) {
+      order: $i !important;
+    }
+  }
+
+  .nd-col-order-md-#{$i} {
+    @media only screen and (min-width: $breakpoint-medium) {
+      order: $i !important;
+    }
+  }
+
+  .nd-col-order-lg-#{$i} {
+    @media only screen and (min-width: $breakpoint-large) {
+      order: $i !important;
+    }
+  }
+
+  .nd-col-order-xl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xlarge) {
+      order: $i !important;
+    }
+  }
+
+  .nd-col-order-xxl-#{$i} {
+    @media only screen and (min-width: $breakpoint-xxlarge) {
+      order: $i !important;
+    }
+  }
+}
+

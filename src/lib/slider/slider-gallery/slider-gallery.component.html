@@ -1,0 +1,10 @@
+<div #ndGallery class="nd-slider-gallery">
+  <ul #ndSmallGalleryUl class="nd-slider-gallery-ul">
+    <li #ndSmallGalleryLi
+        class="nd-slider-gallery-li"
+        (click)="selectImage(i, $event)" *ngFor="let image of imgList; let i = index;"
+        [ngClass]="{'is-current': i === currentIndex}"
+        [style.backgroundImage]="'url(' + image + ')'">
+    </li>
+  </ul>
+</div>

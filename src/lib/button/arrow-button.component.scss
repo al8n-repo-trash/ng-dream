@@ -1,0 +1,150 @@
+@import "variables";
+
+.nd-arrow-button-right {
+  min-width:  $btn-shape-arrow-min-width;
+  width: auto;
+  height: $btn-shape-arrow-height;
+  padding-right: 0;
+  @include button-arrow-basic();
+  background: transparent;
+  &:hover {
+    background: none;
+  }
+
+  &::before {
+    transform: skew(-45deg);
+  }
+
+  &::after {
+    transform: skew(45deg);
+  }
+
+  &:hover::before, &:hover::after {
+    background: $btn-ripple-background;
+  }
+
+}
+
+.nd-arrow-button-left {
+  min-width:  $btn-shape-arrow-min-width;
+  width: auto;
+  height: $btn-shape-arrow-height;
+  padding-left: 0;
+  @include button-arrow-basic();
+  background: transparent;
+  &:hover {
+    background: none;
+  }
+
+  &:hover::before, &:hover::after {
+    background: $btn-ripple-background;
+  }
+}
+
+.nd-arrow-button-up {
+  background: $btn-hover-background;
+  -webkit-clip-path: polygon(50% 0%, 0 25%, 0% 100%, 50% 75%, 100% 100%, 100% 25%);
+  clip-path: polygon(50% 0%, 0 25%, 0% 100%, 50% 75%, 100% 100%, 100% 25%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  min-height: 5em;
+
+
+  .nd-button-wrapper {
+    word-break: break-word;
+  }
+
+  &:hover {
+    background: $btn-ripple-background;
+  }
+}
+
+@each $item in map_keys($btn-rate) {
+  .nd-arrow-button-left-default-#{$item} {
+    min-width:  $btn-shape-arrow-min-width;
+    width: auto;
+    height: $btn-shape-arrow-height;
+    padding-left: $btn-shape-arrow-padding;
+
+    @include button-arrow-basic(rgba(map_get($btn-rate, $item), .1));
+    background: transparent;
+    &:hover {
+      background: none;
+    }
+
+    &:hover::before, &:hover::after {
+      background: rgba(map_get($btn-rate, $item), .3);
+    }
+
+  }
+
+  .nd-arrow-button-right-default-#{$item} {
+    min-width:  $btn-shape-arrow-min-width;
+    width: auto;
+    height: $btn-shape-arrow-height;
+    padding-right: $btn-shape-arrow-padding;
+    background: none;
+    @include button-arrow-basic(rgba(map_get($btn-rate, $item), .1));
+
+    &:hover {
+      background: none;
+    }
+
+    &::before {
+      transform: skew(-45deg);
+    }
+
+    &::after {
+      transform: skew(45deg);
+    }
+
+    &:hover::before, &:hover::after {
+      background: rgba(map_get($btn-rate, $item), .3);
+    }
+
+  }
+
+  .nd-arrow-button-left-flat-#{$item} {
+    min-width:  $btn-shape-arrow-min-width;
+    width: auto;
+    height: $btn-shape-arrow-height;
+    padding-left: $btn-shape-arrow-padding;
+    border: none;
+    @include button-arrow-basic(map_get($btn-rate, $item));
+    background: transparent;
+
+    &:hover {
+      background: transparent;
+    }
+
+    &:hover::before, &:hover::after {
+      background: darken(map_get($btn-rate, $item), 10%);
+    }
+  }
+
+  .nd-arrow-button-right-flat-#{$item} {
+    min-width:  $btn-shape-arrow-min-width;
+    width: auto;
+    height: $btn-shape-arrow-height;
+    padding-right: $btn-shape-arrow-padding;
+    background: transparent;
+    border: none;
+    @include button-arrow-basic(map_get($btn-rate, $item));
+
+    &:hover {
+      background: transparent;
+    }
+
+    &::before {
+      transform: skew(-45deg);
+    }
+
+    &::after {
+      transform: skew(45deg);
+    }
+
+    &:hover::before, &:hover::after {
+      background: darken(map_get($btn-rate, $item), 10%);
+    }
+  }
+}

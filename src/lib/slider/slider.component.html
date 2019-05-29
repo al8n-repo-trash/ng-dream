@@ -1,0 +1,61 @@
+<section #ndSliderSection
+         *ngIf="ndSliderContent && ndSliderContent.length"
+
+>
+  <div class="nd-slider-wrapper">
+    <!--<ul #ndSliderContentContainer-->
+        <!--[style.left]="(-currentImageIndex * containerWidth) + 'px'"-->
+        <!--class="nd-slider-item-ul"-->
+    <!--&gt;-->
+      <!--<li *ngFor="let image of ndSliderContent; let i = index;"-->
+          <!--[style.backgroundImage]="'url(' + image.url + ')'"-->
+          <!--[ngClass]="{'is-current': i === currentImageIndex}"-->
+          <!--class="nd-slider-item-li"-->
+      <!--&gt;</li>-->
+    <!--</ul>-->
+    <div #ndSliderContentContainer
+         class="nd-item-container"
+         *ngIf="!isDetail"
+    >
+      <div  class="nd-slider-img-container" *ngFor="let itm of ndSliderContent; let i = index">
+        <img src="{{itm}}" alt="" >
+      </div>
+    </div>
+
+    <div #ndSliderContentContainer
+         class="nd-item-container"
+         *ngIf="isDetail"
+         [style.left]="(-currentIndex * containerWidth) + 'px'"
+         [style.height]="ndHeight"
+    >
+      <div  class="nd-slider-img-container" *ngFor="let itm of ndSliderContent; let i = index">
+        <img src="{{itm.url}}" alt="" >
+        <div class="nd-slider-title-container">
+          <div class="nd-slider-title">{{itm.title}}</div>
+          <div class="nd-slider-subtitle">{{itm.subtitle}}</div>
+        </div>
+        <div class="nd-slider-describe">
+          {{itm.describe}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY NAVIGATION -->
+  <div #ndSmallGallery class="nd-slider-gallery">
+    <ul #ndSmallGalleryUl class="nd-slider-gallery-ul">
+      <li #ndSmallGalleryLi
+          class="nd-slider-gallery-li"
+          (click)="selectImage(i, $event)" *ngFor="let image of ndSliderContent; let i = index;"
+          [ngClass]="{'is-current': i === currentIndex}"
+          [style.backgroundImage]="'url(' + image.url + ')'">
+      </li>
+    </ul>
+  </div>
+</section>
+<button class="nd-slider-prev" type="button" (click)="goPrev()">&lt;</button>
+<button class="nd-slider-next" type="button" (click)="goNext()">&gt;</button>
+<ng-content select="[nd-slider-button]"></ng-content>
+<ng-content></ng-content>
+
+

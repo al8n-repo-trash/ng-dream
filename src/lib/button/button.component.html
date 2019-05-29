@@ -1,0 +1,9 @@
+<span class="nd-button-wrapper">
+  <ng-content></ng-content>
+</span>
+<div nd-ripple
+     *ngIf="isBtnRipple"
+     class="nd-button-ripple"
+     #rippleContainer
+></div>
+<div *ngIf="!isBtnRipple"></div>

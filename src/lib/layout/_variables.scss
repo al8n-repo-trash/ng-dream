@@ -1,0 +1,195 @@
+@import "../core/functions/base";
+@import "../core/variables";
+
+$navbar-height-default: 64px !default;
+$navbar-box-shadow-default: -4px 6px 8px #f0f1f2;
+$navbar-left-width-default: 300px !default;
+$navbar-left-min-width-default: 200px !default;
+$navbar-left-width-padding-bottom-default: 10px;
+$navbar-left-width-padding-top-default: 10px;
+$navbar-left-width-padding-default: 10px 0 10px 20px;
+$navbar-right-width-padding-default: 10px 20px 10px 0;
+$navbar-brand-font-family-default: Avenir,"Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+
+$navbar-search-input-padding-bottom: 5px!default;
+
+$navbar-brand-font-size-default: 24px;
+$navbar-brand-font-weight-default: 500;
+$navbar-brand-font-color-default: #000000;
+$navbar-brand-letter-spacing-default: 4px;
+
+$navbar-brand-text-shadow-default: none;
+$navbar-right-nav-font-size-default: 14px;
+$navbar-right-nav-min-width-default: 40px;
+$navbar-right-nav-margin-default: 0 20px 0 20px;
+$navbar-menu-item-height-default: 40px!default;
+$navbar-menu-item-font-size: 16px !default;
+$navbar-search-color-default: #a5b1bd;
+$navbar-search-border-bottom-default: 1px solid #484848;
+
+$content-container-height: colSegment(10)!default;
+
+$sider-box-shadow-default: 5px 0 15px rgba(0, 0, 0, 0.08) !default;
+$sider-padding: 20px 0 80px 0 !default;
+$sider-width: 300px !default;
+$sider-md-width: 300px !default;
+$sider-border: 1px solid #e5e5e5 !default;
+$sider-btn-size-default: 40px !default;
+$sider-btn-border-radius-default: 0 10px 10px 0 !default;
+$sider-btn-left-default: 0!default;
+$sider-btn-top-default: 20px !default;
+$sider-btn-box-shadow: 4px 4px 15px -1px rgba(0, 0, 0, 0.08) !default;
+@mixin row-container {
+  display: flex;
+  flex-direction: row!important;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+@mixin column-container {
+  display: flex;
+  flex-direction: column!important;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+@mixin search-input-default {
+  border: none;
+  outline: none;
+  background-color: transparent !important;
+  width: auto !important;
+  text-overflow: ellipsis !important;
+  font-weight: normal !important;
+  line-height: 16px;
+  height: calc(16px + #{$navbar-search-input-padding-bottom});
+  font-size: 15px !important;
+  border: 0px initial initial !important;
+  border-image: initial !important;
+  margin: 0 5px !important;
+  padding: 0 0 $navbar-search-input-padding-bottom 0 !important;
+
+}
+
+@mixin search-input-placeholder-default {
+  font-weight: 300;
+  font-size: 15px;
+  text-shadow: none;
+  color: $navbar-search-color-default;
+}
+
+@mixin search-container-default {
+  height: 80%;
+  width: auto;
+  max-width: 180px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: $breakpoint-large) {
+    display: none;
+  }
+}
+
+@mixin controlBtnContainer {
+  width: $sider-btn-size-default;
+  height: $sider-btn-size-default;
+  position: absolute;
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease-in-out;
+}
+
+@mixin controlBtn {
+  width: inherit;
+  height: inherit;
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin menuBtn {
+  @include controlBtn;
+  @include controlBtnContainer;
+  animation: breath 1.5s linear infinite;
+
+
+  .line {
+    height: 2px;
+    width: 16px;
+    margin: 3px 0;
+    background: #000000;
+    border-radius: 1px;
+    transition: width .4s cubic-bezier(0.2, 0, 0.4, 0.4);
+  }
+
+  &:hover, &:active {
+    flex-direction: row;
+    transform: rotate(270deg);
+    .line {
+      height: 16px;
+      width: 2px;
+      margin: 0 3px;
+      transition: height .4s cubic-bezier(0.2, 0, 0.4, 0.4);
+    }
+  }
+}
+
+@mixin closeBtn {
+  @include controlBtn;
+  @include controlBtnContainer;
+  animation: breath 1.5s linear infinite;
+
+  span {
+    font-size: 20px!important;
+    font-weight: 500;
+  }
+
+  &:hover, &:active {
+    flex-direction: row;
+    animation: rotateClose .5s linear 1;
+  }
+}
+
+@keyframes breath {
+  from {transform: scale(1,1);}
+  50% {transform: scale(1.1,1.1);}
+  to  {transform: scale(1,1);}
+}
+
+@-webkit-keyframes breath {
+  from {transform: scale(1,1);}
+  35% {transform: scale(1.1,1.1);}
+  50% {transform: scale(1.2,1.2);}
+  75% {transform: scale(0.9,0.9);}
+  to  {transform: scale(1,1);}
+}
+
+@keyframes rotateClose {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes rotateClose {
+  from {transform: rotate(0)}
+  to {transform: rotate(180deg)}
+}

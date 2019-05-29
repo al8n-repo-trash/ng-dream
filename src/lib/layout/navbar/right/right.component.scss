@@ -1,0 +1,223 @@
+@import "../../variables";
+
+
+
+.nd-navbar-right {
+  align-self: center;
+  justify-self: flex-end;
+  height: 100%;
+  width: auto;
+  position: absolute;
+  right: 20px!important;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: $navbar-right-nav-font-size-default;
+
+  .nd-navbar-right-container {
+    height: inherit;
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nd-navbar-right-container-max-lg {
+    height: 100%;
+    width: auto;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    .nd-navbar-menu {
+      position: fixed;
+      right: 0;
+      height: auto;
+      overflow-x: hidden;
+      background: white;
+      top: $navbar-height-default;
+      width: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: $navbar-box-shadow-default;
+      transition: all .5s ease-in-out;
+      z-index: 3;
+
+      .nd-nav {
+        &:before {
+          display: none;
+        }
+        z-index: 30;
+        width: 100%;
+        margin: 10px 0;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        height: $navbar-menu-item-height-default;
+        line-height: $navbar-menu-item-height-default;
+        font-size: $navbar-menu-item-font-size;
+        font-family: $nd-global-font-family-1;
+        color: #484848;
+        background: white;
+
+        &:hover:before {
+          display: none;
+        }
+      }
+      .nd-nav-active {
+        &:before {
+          display: none;
+        }
+
+        color: $nd-color-1;
+        border-bottom: none !important;
+
+      }
+    }
+    
+    .nd-navbar-btn-open {
+      @include menuBtn;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      animation: none;
+      z-index: 11;
+      .line {
+        width: 20px;
+        background: $nd-color-1;
+      }
+
+      &:hover {
+        .line {
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  input[type='search'] {
+    @include search-input-default;
+  }
+
+  input[type='search']::placeholder {
+    @include search-input-placeholder-default;
+  }
+
+  label {
+    margin-bottom: 0!important;
+  }
+
+  .nd-navbar-search {
+    @include search-container-default;
+    margin-top: 0;
+
+    .nd-icon {
+      transition: all .3s linear;
+      font-size: 22px;
+      padding-bottom: 4px;
+    }
+
+
+    &:hover, &:focus, &:active {
+      .nd-icon {
+        color: $nd-color-1 !important;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-large) {
+
+    .nd-navbar-search {
+      display: none;
+    }
+    .nd-nav {
+      display: none;
+    }
+  }
+
+  .nd-nav {
+    background: none;
+    position: relative;
+    text-decoration: none;
+    padding: 0!important;
+    text-align: center;
+    vertical-align: middle;
+    color: $nd-font-color-normal;
+    height: 30px;
+    line-height: 30px;
+    margin: $navbar-right-nav-margin-default;
+    min-width: $navbar-right-nav-min-width-default;
+    transition: right .3s ease-out;
+    font-variant: normal;
+    overflow-y: hidden;
+    font-size: $navbar-right-nav-font-size-default;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nd-nav::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    transition: right 0.3s ease-in-out;
+    border-bottom: 2px solid $nd-color-1;
+  }
+
+  .nd-nav:hover,.nd-nav:focus {
+    color: $nd-color-1;
+  }
+
+  .nd-nav:hover::before, .nd-nav:focus::before {
+    right: 0;
+  }
+
+  .nd-nav-active {
+    background: inherit;
+    position: relative;
+    text-decoration: none;
+    padding: 0!important;
+    text-align: center;
+    vertical-align: middle;
+    color: $nd-color-1;
+    height: 30px;
+    line-height: 30px;
+    margin: $navbar-right-nav-margin-default;
+    min-width: $navbar-right-nav-min-width-default;
+    transition: right .3s ease-out;
+    font-variant: normal;
+    border-bottom: 2px solid $nd-color-1!important;
+    font-size: $navbar-right-nav-font-size-default;
+
+    &:before {
+      content: '';
+      border-bottom: none;
+      transition: none;
+    }
+  }
+
+  .nd-transparent {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: transparent;
+    cursor: pointer;
+  }
+}
+
+

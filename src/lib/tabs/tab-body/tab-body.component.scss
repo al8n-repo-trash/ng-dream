@@ -1,0 +1,12 @@
+@import "../variables";
+
+.nd-tab-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: $body-margin-top 10px 10px 10px;
+  width: calc(100% - #{$body-padding-x} * 2);
+  @include transition(all .5s ease-in-out);
+  overflow: auto;
+}

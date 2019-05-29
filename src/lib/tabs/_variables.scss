@@ -1,0 +1,194 @@
+@import "../core/variables";
+@import "../core/vendor-prefixes";
+@import "~@angular/cdk/a11y";
+
+$tabs-container-min-width: 744px !default;
+$tabs-container-min-width-s: 552px !default;
+$tabs-container-min-width-xs: 456px !default;
+
+@mixin tabs-container-base {
+  position: relative;
+  min-width: $tabs-container-min-width;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    min-width: $tabs-container-min-width-s;
+  }
+
+  @media only screen and (min-width: $breakpoint-small) {
+    min-width: $tabs-container-min-width-xs;
+  }
+
+  .nd-tab-label-active {
+    color: $nd-color-1;
+  }
+}
+
+@mixin tab-body-list-base {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 30px;
+  position: relative;
+  will-change: margin-left;
+
+  .nd-tab-body-container {
+    transition: transform .5s cubic-bezier(.35,0,.25,1);
+    overflow: auto;
+    transform: none;
+  }
+
+  .nd-tab-body-container-active {
+    width: 100%;
+  }
+}
+
+@mixin tabs-container-vertical {
+  @include tabs-container-base;
+  flex-direction: row;
+  .nd-body-list {
+    @include tab-body-list-base;
+
+    .nd-tab-body-container-up {
+      transform: translate3d(0px, 100%, 0px);
+    }
+
+    .nd-tab-body-container-down {
+      transform: translate3d(0px, -100%, 0px);
+    }
+  }
+}
+
+@mixin tabs-container-horizontal {
+  @include tabs-container-base;
+  .nd-body-list {
+    @include tab-body-list-base;
+
+    .nd-tab-body-container-right {
+      transform: translate3d(100%, 0px, 0px);
+    }
+
+    .nd-tab-body-container-left {
+      transform: translate3d(-100%, 0px, 0px);
+    }
+  }
+}
+
+/**
+  ink-bar
+ */
+$ink-bar-transition: all .5s cubic-bezier(.35,0,.25,1) !default;
+$ink-bar-min-width: 144px !default;
+$ink-bar-small-min-width: 48px !default;
+
+@mixin tab-ink-bar {
+  height: 2px;
+  min-width: $ink-bar-min-width;
+  display: block;
+  position: absolute;
+  transition: $ink-bar-transition;
+  background-color: $nd-color-1;
+}
+
+
+/**
+  label
+ */
+$tab-label-horizontal-height: 48px !default;
+$tab-label-padding: 0 24px 0 24px !default;
+$tab-label-min-width: 144px !default;
+$tab-label-width-fixed: 144px !default;
+$tab-label-opacity: .6 !default;
+
+$tab-label-small-width-fixed: 72px !default;
+$tab-label-small-font-size: 14px !default;
+$tab-label-small-horizontal-height: 30px !default;
+$tab-label-small-horizontal-min-width: 48px !default;
+$tab-label-small-vertical-height: 30px !default;
+$tab-label-small-vertical-min-width: 64px!default;
+$tab-label-small-padding-x: 0 10px !default;
+
+$tab-label-large-width-fixed: 196px !default;
+$tab-label-large-font-size: 22px !default;
+$tab-label-large-horizontal-height: 56px !default;
+$tab-label-large-horizontal-min-width: 196px !default;
+$tab-label-large-vertical-height: 48px !default;
+$tab-label-large-vertical-min-width: 144px !default;
+$tab-label-large-padding-x: 0 30px !default;
+
+$tab-label-vertical-height: 36px !default;
+
+@mixin tab-label {
+
+  padding: $tab-label-padding;
+  cursor: pointer;
+  box-sizing: border-box;
+  opacity: $tab-label-opacity;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+
+  .nd-tab-label-ripple-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &:focus {
+    outline: none;
+
+    &:not(.nd-tab-disabled) {
+      opacity: 1;
+    }
+
+    @include cdk-high-contrast {
+      outline: dotted 2px;
+    }
+  }
+
+  &.nd-tab-disabled {
+    cursor: not-allowed;
+
+    @include cdk-high-contrast {
+      opacity: .5;
+    }
+  }
+
+  .nd-tab-label-content {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    font-family: 'Raleway', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 0;
+  }
+
+  @include cdk-high-contrast {
+    opacity: 1;
+  }
+}
+
+@mixin nd-tab-label-vertical {
+  min-width: 36px;
+  width: 100%;
+}
+/**
+  body
+ */
+
+$body-margin-top: 20px!default;
+$body-padding-x: 10px!default;

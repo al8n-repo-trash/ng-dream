@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.nd-navbar-left {
+  @include row-container;
+  width: rowSegment(4);
+  min-width: $navbar-left-min-width-default;
+  height: calc(100% - #{$navbar-left-width-padding-bottom-default + $navbar-left-width-padding-top-default});
+  padding: $navbar-left-width-padding-default;
+  transition: all .3s ease-in-out;
+  z-index: 10;
+  img {
+    width: 208px;
+    height: 48px;
+  }
+
+  @media only screen and (max-width: $breakpoint-medium) {
+    width: auto;
+  }
+}

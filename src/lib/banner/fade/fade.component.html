@@ -1,0 +1,29 @@
+<section>
+  <div class="nd-banner-container">
+    <div #ndImages
+      class="nd-banner-img-container"
+      *ngFor="let image of imageList"
+      [style.backgroundImage]="'url(' + image + ')'">
+    </div>
+  </div>
+</section>
+<button class="nd-banner-prev" type="button" (click)="goPrev()">&lt;</button>
+<button class="nd-banner-next" type="button" (click)="goNext()">&gt;</button>
+<div  class="nd-banner-fade-nav-line-container" *ngIf="navType === 'line'">
+  <div  class="nd-banner-fade-nav" *ngFor="let nav of imageList; let i = index;" (click)="skipToImage(i)">
+    <div #ndNavList class="line-span"></div>
+  </div>
+</div>
+
+<div  class="nd-banner-fade-nav-dots-container" *ngIf="navType === 'dots'">
+  <div  class="nd-banner-fade-nav" *ngFor="let nav of imageList; let i = index;" (click)="skipToImage(i)">
+    <div #ndNavList class="dots"></div>
+  </div>
+</div>
+
+<div  class="nd-banner-fade-nav-dots-container" *ngIf="navType === 'number'">
+  <div  class="nd-banner-fade-nav" *ngFor="let nav of imageList; let i = index;" (click)="skipToImage(i)">
+    <div #ndNavList class="dots"></div>
+  </div>
+</div>
+

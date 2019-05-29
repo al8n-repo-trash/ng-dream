@@ -1,0 +1,62 @@
+// global background
+$nd-global-background-light: #ffffff;
+$nd-global-background-dark: #000000;
+
+// Breakpoints
+$breakpoint-xsmall:                             480px !default;
+$breakpoint-small:                              576px !default;
+$breakpoint-medium:                             768px !default;
+$breakpoint-large:                              992px !default;
+$breakpoint-xlarge:                             1200px !default;
+$breakpoint-xxlarge:                            1600px !default;
+
+$nd-global-margin: 20px !default;
+
+// font
+$nd-global-font-family-1: Avenir,"Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol" !default;
+
+$nd-global-font-family-2: ProximaNova,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+$nd-global-font-size: 16px!default;
+$nd-global-line-height: 1.5 !default;
+
+$nd-global-xxlarge-font-size: 2.625rem !default; // 42px
+$nd-xlarge-font-size: 2rem !default; //32px
+$nd-large-font-size: 1.5rem !default; //24px
+$nd-medium-font-size: 1.25rem !default; //20px
+$nd-small-font-size: 0.875rem !default; //14px
+$nd-xsmall-font-size: 0.75rem !default; // 12px
+
+// colors
+// $nd-color-1: #42A5F5;
+//$nd-color-hover-1: #e6f7ff;
+//$nd-color-1: #ff8a84;
+$nd-color-1: #add5ed;
+$nd-color-2: #00848a;
+$nd-color-3: #eb6d3f;
+$nd-color-4: #914669;
+$nd-color-5: #ff5a5f;
+$nd-color-6: #df5f6c;
+$nd-color-7: #eab26e;
+$nd-color-8: #4d78b0;
+$nd-color-9: #dfdf97;
+$nd-color-10: #7f904b;
+
+$nd-font-color-emphasis: #333 !default;
+$nd-font-color-muted: #999 !default;
+$nd-font-color-normal: #484848 !default;
+$nd-font-color-nav: #314659 !default;
+$nd-disabled: #f5f5f5!default;
+$nd-disabled-color: rgba(0,0,0, .25)!default;
+$nd-disabled-border-color: #d9d9d9!default;
+
+// borders
+$nd-global-border: 1px solid #e5e5e5 !default;
+$nd-global-border-width: 1px !default;
+$nd-global-border-color: #e5e5e5 !default;
+
+// box-shadow
+$nd-global-small-box-shadow: 0 2px 8px rgba(0,0,0,0.08) !default;
+$nd-global-medium-box-shadow: 0 5px 15px rgba(0,0,0,0.08) !default;
+$nd-global-large-box-shadow: 0 14px 25px rgba(0,0,0,0.16) !default;
+$nd-global-xlarge-box-shadow: 0 28px 50px rgba(0,0,0,0.16) !default;

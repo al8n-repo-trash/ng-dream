@@ -1,0 +1,27 @@
+@function rowSegment($segment) {
+  @return $segment * 100% / 24;
+}
+
+@function colSegment($segment) {
+  @return $segment * 100% / 12;
+}
+
+@mixin col($segment) {
+  float: left;
+  flex: 0 0 auto;
+  position: relative;
+  width: rowSegment($segment) !important;
+}
+
+@mixin colOffset($segment) {
+  margin-left: rowSegment($segment) !important;
+}
+
+@mixin colPush($segment) {
+  left: rowSegment($segment) !important;
+}
+
+@mixin colPull($segment) {
+  float: right;
+  right: rowSegment($segment) !important;
+}

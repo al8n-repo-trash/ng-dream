@@ -1,0 +1,43 @@
+<nd-tab-header #header
+               [style.height.px]="(ndPosition === 'left' || ndPosition === 'right') ? el.offsetHeight : null">
+  <nd-tab-label
+    *ngFor="let tab of _tabs; let i = index;"
+    (click)="tab.ndDisabled ? null : changeLabel(i)"
+    [class.nd-tab-label-fixed]="ndLabelMode === 'fixed'"
+    [class.nd-tab-label-active]="ndSelectedIndex == i && !tab.ndDisabled"
+    [class.nd-tab-label-small]="ndLabelSize === 'small' && ndLabelMode === 'auto'"
+    [class.nd-tab-label-large]="ndLabelSize === 'large' && ndLabelMode === 'auto'"
+    [class.nd-tab-label-small-fixed]="ndLabelSize === 'small' && ndLabelMode === 'fixed'"
+    [class.nd-tab-label-large-fixed]="ndLabelSize === 'large' && ndLabelMode === 'fixed'"
+    [class.nd-tab-label-disabled]="tab.ndDisabled"
+    [style.width.px]="ndLabelWidth ? ndLabelWidth : null"
+    [style.height.px]="ndLabelHeight ? ndLabelHeight : null"
+  >
+    {{tab.textLabel}}
+  </nd-tab-label>
+  <nd-tab-ink-bar #inkbar
+                  [class.nd-tab-ink-bar-hidden]="_tabs.toArray()[ndSelectedIndex]['ndDisabled']"
+  ></nd-tab-ink-bar>
+</nd-tab-header>
+
+<div class="nd-body-list">
+  <div
+    *ngFor="let tab of _tabs; let i = index;"
+    [class.nd-tab-body-container-right]="ndPosition === 'top' && ndSelectedIndex > i"
+    [class.nd-tab-body-container-left]="ndPosition === 'top' && ndSelectedIndex < i"
+    [class.nd-tab-body-container-up]="(ndPosition === 'left' || ndPosition === 'right') && ndSelectedIndex > i"
+    [class.nd-tab-body-container-down]="(ndPosition === 'left' || ndPosition === 'right') && ndSelectedIndex < i"
+    class="nd-tab-body-container"
+    [class.nd-tab-body-container-active]="(ndPosition === 'top' || ndPosition === 'bottom') && ndSelectedIndex == i"
+    [style.height.px]="ndBodyHeight ? ndBodyHeight : null"
+    [style.width.px]="ndBodyWidth ? ndBodyWidth : null"
+  >
+    <nd-tab-body
+      role="tabpanel"
+      [active]="ndSelectedIndex == i"
+      [content]="tab.ndDisabled ? null : tab.content"
+      [index]="i"
+      [clientWidth]="(ndPosition === 'top' || ndPosition === 'bottom') ? width : null"
+    ></nd-tab-body>
+  </div>
+</div>

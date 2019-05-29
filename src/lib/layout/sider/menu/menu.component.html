@@ -1,0 +1,294 @@
+<nd-icon hidden></nd-icon>
+<div>
+  <ul class="nd-sider-menu-wrapper" *ngFor="let item of ndModel">
+    <li *ngIf="item.link && item.text" class="nd-sider-menu-item">
+      <a nd-ripple [ndRipple]="ndMenuRipple"
+         [ndRippleColor]="color"
+         [ndRippleOpacity]="opacity"
+         [ndRippleDuration]="duration"
+         [ndRippleBoxShadow]="boxShadow"
+         [ndRippleSize]="size"
+         [routerLink]="item.link"
+         routerLinkActive="nd-sider-menu-item-active"
+      >{{item.text}}</a>
+    </li>
+
+    <li *ngIf="(!item.link || !item.text) && !(item.submenuList && item.submenuList.length)"
+        class="nd-sider-menu-item">
+      <a nd-ripple [ndRipple]="ndMenuRipple"
+         [ndRippleOpacity]="opacity"
+         [ndRippleColor]="color"
+         [ndRippleDuration]="duration"
+         [ndRippleBoxShadow]="boxShadow"
+         [ndRippleSize]="size"
+      >
+        {{item.text}}
+        <span *ngIf="item.submenuList && item.submenuList.length">
+          <nd-icon ndIconType="unfold" ></nd-icon>
+        </span>
+      </a>
+    </li>
+
+    <li #submenuItem *ngIf="(!item.link || !item.text) && (item.submenuList && item.submenuList.length)"
+        class="nd-sider-menu-item" (click)="showSubmenu(submenuItem)">
+      <a nd-ripple [ndRipple]="ndMenuRipple"
+         [ndRippleColor]="color"
+         [ndRippleOpacity]="opacity"
+         [ndRippleDuration]="duration"
+         [ndRippleBoxShadow]="boxShadow"
+         [ndRippleSize]="size"
+      >
+        {{item.text}}
+        <span *ngIf="item.submenuList && item.submenuList.length">
+          <span #icons class="nd-icon nd-icon-unfold"></span>
+        </span>
+      </a>
+    </li>
+
+
+    <li *ngIf="item.submenuList && item.submenuList.length" #submenu>
+      <ul *ngFor="let itemNd of item.submenuList">
+        <li *ngIf="itemNd.title" class="nd-sider-menu-title">{{itemNd.title}}</li>
+        <li *ngIf="!itemNd.title">
+          <ul class="nd-sider-menu-wrapper" *ngFor="let subItemNd of itemNd.submenu">
+            <li #submenuItem (click)="showSubmenu(submenuItem)">
+              <ul *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+                <li *ngIf="subItemNd.link && subItemNd.text" class="nd-sider-menu-item ">
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                     [routerLink]="subItemNd.link"
+                     routerLinkActive="nd-sider-menu-item-active"
+                  >
+                    {{subItemNd.text}}
+                  </a>
+                </li>
+                <li *ngIf="subItemNd.link && subItemNd.text" class="nd-sider-menu-item ">
+                  <a nd-ripple
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                  >
+                    {{subItemNd.text}}
+                    <span *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+                      <span #icons class="nd-icon nd-icon-unfold"></span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <ul *ngIf="!(subItemNd.submenuList && subItemNd.submenuList.length)">
+                <li *ngIf="subItemNd.link && subItemNd.text" class="nd-sider-menu-item ">
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                     [routerLink]="subItemNd.link"
+                     routerLinkActive="nd-sider-menu-item-active"
+                  >
+                    {{subItemNd.text}}
+                  </a>
+                </li>
+
+                <li *ngIf="!subItemNd.link || !subItemNd.text" class="nd-sider-menu-item ">
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                  >
+                    {{subItemNd.text}}
+                    <span *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+                      <span #icons class="nd-icon nd-icon-unfold"></span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            <li *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+              <ul *ngFor="let itemRd of subItemNd.submenuList">
+                <li *ngIf="itemRd.title" class="nd-sider-menu-title">{{itemRd.title}}</li>
+                <li>
+                  <ul class="nd-sider-menu-wrapper" *ngFor="let subItemRd of itemRd.submenu">
+                    <li *ngIf="subItemRd.link && subItemRd.text" class="nd-sider-menu-item nd-sider-menu-item-secondary">
+                      <a nd-ripple [ndRipple]="ndMenuRipple"
+                         [ndRippleColor]="color"
+                         [ndRippleOpacity]="opacity"
+                         [ndRippleDuration]="duration"
+                         [ndRippleBoxShadow]="boxShadow"
+                         [ndRippleSize]="size"
+                         [routerLink]="subItemRd.link"
+                         routerLinkActive="nd-sider-menu-item-active"
+                      >
+                        {{subItemRd.text}}
+                      </a>
+                    </li>
+
+                    <li *ngIf="!subItemRd.link || !subItemRd.text" class="nd-sider-menu-item nd-sider-menu-item-secondary">
+                      <a nd-ripple [ndRipple]="ndMenuRipple"
+                         [ndRippleColor]="color"
+                         [ndRippleOpacity]="opacity"
+                         [ndRippleDuration]="duration"
+                         [ndRippleBoxShadow]="boxShadow"
+                         [ndRippleSize]="size"
+                      >
+                        {{subItemRd.text}}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="itemNd.title" >
+          <ul class="nd-sider-menu-wrapper" *ngFor="let subItemNd of itemNd.submenu">
+            <li *ngIf="!(subItemNd.submenuList && subItemNd.submenuList.length)">
+              <ul >
+                <li *ngIf="subItemNd.link && subItemNd.text" class="nd-sider-menu-item nd-sider-menu-item-secondary">
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                     [routerLink]="subItemNd.link"
+                     routerLinkActive="nd-sider-menu-item-active"
+                  >
+                    {{subItemNd.text}}
+                  </a>
+                </li>
+
+                <li *ngIf="!subItemNd.link || !subItemNd.text"
+                    class="nd-sider-menu-item nd-sider-menu-item-secondary"
+                >
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                  >
+                    {{subItemNd.text}}
+                    <span *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+                      <span #icons class="nd-icon nd-icon-unfold"></span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li #submenuItem
+                (click)="showSubmenu(submenuItem)"
+                *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+              <ul>
+                <li *ngIf="subItemNd.link && subItemNd.text" class="nd-sider-menu-item ">
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                     class="nd-sider-submenuNd"
+                     [routerLink]="subItemNd.link"
+                     routerLinkActive="nd-sider-menu-item-active"
+                  >
+                    {{subItemNd.text}}
+                  </a>
+                </li>
+
+                <li *ngIf="!subItemNd.link || !subItemNd.text" class="nd-sider-menu-item" >
+                  <a nd-ripple [ndRipple]="ndMenuRipple"
+                     [ndRippleColor]="color"
+                     [ndRippleOpacity]="opacity"
+                     [ndRippleDuration]="duration"
+                     [ndRippleBoxShadow]="boxShadow"
+                     [ndRippleSize]="size"
+                     class="nd-sider-submenuNd"
+                  >
+                    {{subItemNd.text}}
+                    <span *ngIf="subItemNd.submenuList && subItemNd.submenuList.length">
+                      <span #icons class="nd-icon nd-icon-unfold"></span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li *ngIf="subItemNd.submenuList && subItemNd.submenuList.length" #submenu>
+              <ul *ngFor="let itemRd of subItemNd.submenuList">
+                <li *ngIf="itemRd.title" class="nd-sider-menu-title">{{itemRd.title}}</li>
+                <li *ngIf="itemRd.title">
+                  <ul class="nd-sider-menu-wrapper" *ngFor="let subItemRd of itemRd.submenu">
+                    <li *ngIf="subItemRd.link && subItemRd.text" class="nd-sider-menu-item nd-sider-menu-item-secondary">
+                      <a nd-ripple [ndRipple]="ndMenuRipple"
+                         [ndRippleColor]="color"
+                         [ndRippleOpacity]="opacity"
+                         [ndRippleDuration]="duration"
+                         [ndRippleBoxShadow]="boxShadow"
+                         [ndRippleSize]="size"
+                         [routerLink]="subItemRd.link"
+                         routerLinkActive="nd-sider-menu-item-active"
+                      >
+                        {{subItemRd.text}}
+                      </a>
+                    </li>
+
+                    <li *ngIf="!subItemRd.link || !subItemRd.text" class="nd-sider-menu-item nd-sider-menu-item-secondary">
+                      <a nd-ripple [ndRipple]="ndMenuRipple"
+                         [ndRippleColor]="color"
+                         [ndRippleOpacity]="opacity"
+                         [ndRippleDuration]="duration"
+                         [ndRippleBoxShadow]="boxShadow"
+                         [ndRippleSize]="size"
+                      >
+                        {{subItemRd.text}}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li *ngIf="!itemRd.title">
+                  <ul class="nd-sider-menu-wrapper" *ngFor="let subItemRd of itemRd.submenu">
+                    <li *ngIf="subItemRd.link && subItemRd.text" class="nd-sider-menu-item  nd-sider-menu-item-secondary">
+                      <a nd-ripple [ndRipple]="ndMenuRipple"
+                         [ndRippleColor]="color"
+                         [ndRippleOpacity]="opacity"
+                         [ndRippleDuration]="duration"
+                         [ndRippleBoxShadow]="boxShadow"
+                         [ndRippleSize]="size"
+                         [routerLink]="subItemRd.link"
+                         routerLinkActive="nd-sider-menu-item-active"
+                      >
+                        {{subItemRd.text}}
+                      </a>
+                    </li>
+
+                    <li *ngIf="!subItemRd.link || !subItemRd.text" class="nd-sider-menu-item nd-sider-menu-item-secondary">
+                      <a nd-ripple [ndRipple]="ndMenuRipple"
+                         [ndRippleColor]="color"
+                         [ndRippleOpacity]="opacity"
+                         [ndRippleDuration]="duration"
+                         [ndRippleBoxShadow]="boxShadow"
+                         [ndRippleSize]="size"
+                      >
+                        {{subItemRd.text}}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

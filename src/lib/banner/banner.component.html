@@ -1,0 +1,25 @@
+<!--<section *ngIf="ndBannerType === 'scroll'">-->
+  <!--&lt;!&ndash;scroll&ndash;&gt;-->
+  <!--<div class="nd-banner-container" >-->
+    <!--<div #ndBannerContainer-->
+         <!--class="nd-banner-item-container"-->
+         <!--(window:resize)="onResize($event)"-->
+    <!--&gt;-->
+      <!--<div #ndBanners class="nd-banner-img-container"-->
+           <!--*ngFor="let i of imageList"-->
+      <!--&gt;-->
+        <!--<img src="{{i}}" alt="">-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<ul #ndBannerContainer *ngIf="!autoSize">-->
+      <!--<li #ndBanners-->
+        <!--*ngFor="let image of imageList;"-->
+        <!--[style.backgroundImage]="'url(' + image + ')'"-->
+      <!--&gt;</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+<!--</section>-->
+<nd-banner-fade *ngIf="ndBannerType === 'fade'" [imageList]="ndImages" [navType]="ndNavType"></nd-banner-fade>
+<ng-content></ng-content>
+
+

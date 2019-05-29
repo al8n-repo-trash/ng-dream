@@ -1,0 +1,250 @@
+@import "../core/variables";
+$btn-type: (
+  default,
+  flat,
+  ghost,
+  raise
+);
+
+$btn-rate: (
+  primary: $nd-color-1,
+  secondary: $nd-color-2,
+  third: $nd-color-3,
+  fourth: $nd-color-4,
+  fifth: $nd-color-5,
+  sixth: $nd-color-6,
+  seventh: $nd-color-7,
+  eighth: $nd-color-8,
+  ninth: $nd-color-9,
+  tenth: $nd-color-10,
+);
+
+
+$btn-height: 2.5em !default;
+$btn-arrow-height: 3em !default;
+$btn-min-width: 4em !default;
+$btn-arrow-min-width: 5em !default;
+$btn-line-height: 2.5em !default;
+$btn-arrow-line-height: 3em !default;
+$btn-font-family: $nd-global-font-family-2;
+$btn-font-size: 16px !default;
+$btn-padding-x: 10px !default;
+$btn-font-weight: 500 !default;
+$btn-color: rgba(0, 0, 0, .87)!default;
+$btn-border-radius: 6px !default;
+
+$btn-ripple-background: rgba(1, 1, 1, .2) !default;
+$btn-hover-background: rgba(1, 1, 1, .05) !default;
+$btn-border-width: 1px;
+$btn-border-style: solid;
+$btn-border-color: $btn-hover-background;
+
+$btn-burger-background: #484848 !default;
+$btn-burger-box-shadow: inset 0px -4px 0px rgba(0,0,0,0.2) !default;
+$btn-burger-background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)) !default;
+
+
+$btn-shape-arrow-height: 3em!default;
+$btn-shape-arrow-min-width: 5em!default;
+$btn-shape-arrow-padding: 0!default;
+
+
+@mixin disabled-arrow {
+  &:disabled {
+    cursor: not-allowed;
+    border: none;
+    background: none;
+    color: $nd-disabled-color;
+    transition: none;
+    .nd-ripple {
+      display: none;
+    }
+  }
+
+  &:disabled::before, &:disabled::after {
+    background: $nd-disabled;
+  }
+
+  &:disabled:hover::before, &:disabled:hover::after {
+    transition: none;
+    background: $nd-disabled;
+  }
+
+  &:disabled:hover {
+    transition: none;
+    border: none;
+    background: none;
+  }
+}
+
+@mixin button-arrow-basic($bg-color: $btn-hover-background) {
+  @include disabled-arrow;
+
+  .nd-button-wrapper {
+    z-index: 1;
+    line-height: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: all .5s;
+    height: 50%;
+    background: $bg-color;
+    border-radius: 2px;
+  }
+
+  &::before {
+    bottom: 0;
+    transform: skew(45deg);
+  }
+
+  &::after {
+    top: 0;
+    transform: skew(-45deg);
+  }
+
+}
+
+@mixin button-basic {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: $btn-min-width;
+  margin: 0 auto;
+  border-radius: $btn-border-radius;
+  height: $btn-height;
+  color: $btn-color;
+  font-weight: $btn-font-weight;
+  position: relative;
+  line-height: $btn-line-height;
+  font-size: $btn-font-size;
+  font-family: $btn-font-family;
+  border: none;
+  outline: none;
+  padding: 0 $btn-padding-x;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+
+}
+
+@mixin disabled-default {
+  &:disabled {
+    cursor: not-allowed;
+    border: $nd-disabled-border-color solid 1px;
+    background: $nd-disabled;
+    color: $nd-disabled-color;
+    transition: none;
+    .nd-ripple {
+      display: none;
+    }
+  }
+
+  &:disabled:hover {
+    transition: none;
+    border: $nd-disabled-border-color solid 1px;
+    background: $nd-disabled;
+  }
+}
+
+
+
+@mixin button-text($color: #484848) {
+
+  @include button-basic;
+    border: none;
+    color: $color;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    line-height: 2em;
+
+    .nd-ripple .nd-ripple-effect {
+      background: none;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      transition: right 0.3s ease-in-out;
+      border-bottom: 2px solid $color;
+    }
+
+    &:hover:before {
+      right: 0;
+    }
+}
+
+@mixin button-stroked($color: $btn-color, $border-color: $btn-border-color, $hover-bg:$btn-hover-background, $ripple-bg: $btn-ripple-background) {
+    @include button-basic;
+    border: $btn-border-width $btn-border-style $border-color; // rgba(map_get($btn-rate, $item), .5);
+    color: $color;
+
+    &:hover {
+      background: $hover-bg;
+
+      .nd-ripple .nd-ripple-effect {
+        background: $ripple-bg;
+      }
+    }
+}
+
+@mixin button-flat($bg-color:none, $border-color: $btn-border-color, $hover-bg: $btn-hover-background, $ripple-bg: $btn-ripple-background) {
+  @include button-basic;
+  border: $btn-border-width $btn-border-style $border-color;
+  background: $bg-color;
+
+  &:hover {
+    background: $hover-bg;
+
+    .nd-ripple .nd-ripple-effect {
+      background: $ripple-bg;
+      opacity: .6;
+    }
+  }
+}
+
+
+@mixin button-default($bg-color: white, $hover-bg: $btn-hover-background, $ripple-bg: $btn-ripple-background) {
+  @include button-basic;
+  background: $bg-color;
+  &:hover {
+    background: $hover-bg;
+
+    .nd-ripple .nd-ripple-effect {
+      background: $ripple-bg;
+    }
+  }
+
+
+}
+
+@mixin arrow-part-basic {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 1s;
+  height: 50%;
+  width: 100%;
+  background: inherit;
+  border-radius: 2px;
+}

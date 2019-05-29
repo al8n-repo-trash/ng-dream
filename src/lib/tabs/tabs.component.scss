@@ -1,0 +1,33 @@
+@import "variables";
+
+$tab-xsmall-width: 420px !default;
+$tab-small-width: 512px !default;
+
+
+.nd-tabs {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.nd-tabs-position-top {
+  @include tabs-container-horizontal;
+}
+
+.nd-tabs-position-bottom {
+  @include tabs-container-horizontal;
+  flex-direction: column-reverse;
+}
+.nd-tabs-position-left {
+  @include tabs-container-vertical;
+}
+
+.nd-tabs-position-right {
+  @include tabs-container-vertical;
+  flex-direction: row-reverse;
+}
+

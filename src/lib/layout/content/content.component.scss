@@ -1,0 +1,72 @@
+@import "../../core/functions/base";
+@import "../../core/variables";
+@import "../variables";
+
+@mixin nd-content {
+  width: rowSegment(19);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: inherit;
+  @media only screen and (max-width: $breakpoint-xlarge) {
+    width: rowSegment(18);
+  }
+
+  @media only screen and (max-width: $breakpoint-large) {
+    width: rowSegment(17);
+    margin: auto!important;
+  }
+
+  @media only screen and (max-width: $breakpoint-medium) {
+    width: rowSegment(22);
+    margin: auto;
+  }
+
+  @media only screen and (max-width: $breakpoint-small) {
+    width: rowSegment(23);
+    margin: auto;
+  }
+}
+
+@mixin nd-main {
+  width: rowSegment(19);
+  position: relative;
+  height: 100%;
+  margin: $navbar-height-default + 30 0 0 rowSegment(5) + 1;
+  background: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  -ms-overflow-style: none!important;
+  overflow: -moz-scrollbars-none!important;
+  &::-webkit-scrollbar{
+    display: none!important;
+  }
+
+  @media only screen and (max-width: $breakpoint-xlarge) {
+    width: rowSegment(19);
+    margin-left: rowSegment(6) + 1;
+  }
+
+  @media only screen and (max-width: $breakpoint-large - 1) {
+    width: rowSegment(20);
+    margin-right: auto!important;
+    margin-left: auto!important;
+  }
+
+  @media only screen and (max-width: $breakpoint-medium) {
+    width: rowSegment(22);
+    margin-right: auto!important;
+    margin-left: auto!important;
+  }
+
+  @media only screen and (max-width: $breakpoint-small) {
+    width: rowSegment(23);
+    margin-right: auto!important;
+    margin-left: auto!important;
+  }
+}

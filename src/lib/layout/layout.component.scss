@@ -1,0 +1,33 @@
+@import "variables";
+@import "./content/content.component";
+.nd-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.nd-content-container-default {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: $content-container-height;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  .nd-main {
+    @include nd-main;
+    transition: left .3s ease-out;
+
+    .nd-content {
+      @include nd-content;
+    }
+  }
+
+
+}

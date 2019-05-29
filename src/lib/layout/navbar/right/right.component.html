@@ -1,0 +1,37 @@
+<div *ngIf="bkpScreen" class="nd-navbar-right-container">
+  <label class="nd-navbar-search" *ngIf="ndSearch">
+    <span class="nd-icon nd-icon-search"></span>
+    <input type="search" placeholder="请输入搜索内容">
+  </label>
+
+  <a *ngFor="let nav of ndNavs;"
+     routerLink="{{nav.link}}"
+     routerLinkActive="nd-nav-active"
+     class="nd-nav"
+  >
+    {{nav.text}}
+  </a>
+</div>
+
+<div *ngIf="!bkpScreen" class="nd-navbar-right-container-max-lg">
+  <div class="nd-navbar-btn-open"
+       (click)="showNavs()"
+  >
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+  <div class="nd-navbar-menu" #navbarMenu>
+    <a
+      class="nd-nav"
+      *ngFor="let nav of ndNavs;"
+      routerLink="{{nav.link}}"
+      routerLinkActive="nd-nav-active"
+      (click)="showNavs()"
+    >
+      {{nav.text}}
+    </a>
+  </div>
+</div>
+<div class="nd-transparent" *ngIf="isNavsShown && !bkpScreen" (click)="showNavs()"></div>
+
