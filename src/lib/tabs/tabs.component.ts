@@ -7,13 +7,13 @@
  */
 
 /** get some code from https://github.com/angular/material2 */
-/** get some code from https://github.com/NG-ZORRO/ng-zorro-antd */
+
 
 import {
   AfterContentChecked, AfterContentInit, AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component, ContentChild, ContentChildren,
+  Component, ContentChildren,
   ElementRef, EventEmitter,
   Input, OnDestroy,
   OnInit, Output,
@@ -63,7 +63,6 @@ export class NdTabsComponent
 
   public readonly el: HTMLElement;
 
-  public offset: number = 0;
   public width: number = 0;
   public height: number = 0;
   public tabItems: NdTabItemComponent[];
@@ -238,7 +237,7 @@ export class NdTabsComponent
 
   /**
    * Subscribes to changes in the tab labels. This is needed, because the @Input for the label is
-   * on the MatTab component, whereas the data binding is inside the MatTabGroup. In order for the
+   * on the NdTabItem component, whereas the data binding is inside the NdTabs. In order for the
    * binding to be updated, we need to subscribe to changes in it and trigger change detection
    * manually.
    */
