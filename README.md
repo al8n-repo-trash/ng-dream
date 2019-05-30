@@ -1,24 +1,20 @@
-# NgDream
+# NG-Dream
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+Amazing web UI frame for Angular6+. 
+### Installation
 
-## Code scaffolding
+Run `npm install ng-dream --save` to install the UI frame
 
-Run `ng generate component component-name --project ng-dream` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-dream`.
-> Note: Don't forget to add `--project ng-dream` or else it will be added to the default project in your `angular.json` file. 
+### Further help
+To get more help about the ng-dream, please visit the official site  [DreamUI](https://angular.dreamui.io).
 
-## Build
+**stack overflow** _Temporarily not opened._<br>
+Because the reputation rule on stack overflow, ng-dream do not have proprietary tag, but you can still post your question on the stackoverflow, we will do our best to help you.
 
-Run `ng build ng-dream` to build the project. The build artifacts will be stored in the `dist/` directory.
+因为声望规则，我们很遗憾的不能在stack overflow上创建属于自己的标签，但是您仍可以在stack overflow上发布ng-dream的相关问题。
+<br>
 
-## Publishing
-
-After building your library with `ng build ng-dream`, go to the dist folder `cd dist/ng-dream` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ng-dream` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**Official site** https://angular.dreamui.io <br> 
+**官方网站**    https://angular.dreamui.io <br>
+**微信交流群** <br>
+**QQ交流群**
