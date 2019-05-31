@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NdExampleViewerComponent } from './example-viewer/example-viewer.component';
+import { NdExampleViewerBodyComponent } from './example-viewer-body/example-viewer-body.component';
 
 const COMPONENTS = [
-  NdExampleViewerComponent
+  NdExampleViewerComponent,
+  NdExampleViewerBodyComponent
 ];
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS,
   ],
   imports: [
     CommonModule

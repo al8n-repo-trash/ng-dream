@@ -22,8 +22,12 @@ $tabs-container-min-width-xs: 456px !default;
     min-width: $tabs-container-min-width-xs;
   }
 
+  @media only screen and (max-width: $breakpoint-small - 1) {
+    min-width: calc(100% - 10px);
+  }
+
   .nd-tab-label-active {
-    color: $nd-color-1;
+    color: $nd-color-1 !important;
   }
 }
 
@@ -35,7 +39,6 @@ $tabs-container-min-width-xs: 456px !default;
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding-bottom: 30px;
   position: relative;
   will-change: margin-left;
 
@@ -52,6 +55,8 @@ $tabs-container-min-width-xs: 456px !default;
 
 @mixin tabs-container-vertical {
   @include tabs-container-base;
+  height: 300px;
+  width: 100%;
   flex-direction: row;
   .nd-body-list {
     @include tab-body-list-base;
@@ -73,10 +78,12 @@ $tabs-container-min-width-xs: 456px !default;
 
     .nd-tab-body-container-right {
       transform: translate3d(100%, 0px, 0px);
+      min-height: 1px;
     }
 
     .nd-tab-body-container-left {
       transform: translate3d(-100%, 0px, 0px);
+      min-height: 1px;
     }
   }
 }
@@ -101,6 +108,7 @@ $ink-bar-small-min-width: 48px !default;
 /**
   label
  */
+$tab-label-color: #040d0f !default;
 $tab-label-horizontal-height: 48px !default;
 $tab-label-padding: 0 24px 0 24px !default;
 $tab-label-min-width: 144px !default;
@@ -125,6 +133,7 @@ $tab-label-large-padding-x: 0 30px !default;
 
 $tab-label-vertical-height: 36px !default;
 
+
 @mixin tab-label {
 
   padding: $tab-label-padding;
@@ -137,7 +146,7 @@ $tab-label-vertical-height: 36px !default;
   align-items: center;
   white-space: nowrap;
   position: relative;
-
+  color: $tab-label-color;
   .nd-tab-label-ripple-container {
     position: absolute;
     top: 0;
@@ -175,6 +184,7 @@ $tab-label-vertical-height: 36px !default;
     font-weight: 500;
     font-size: 18px;
     padding: 10px 0;
+
   }
 
   @include cdk-high-contrast {

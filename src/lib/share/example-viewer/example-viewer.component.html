@@ -2,13 +2,22 @@
   <div class="example-viewer-wrapper">
     <div class="example-viewer-title-container">
       <div class="example-viewer-title">{{exampleName}}</div>
-      <button >&lt;&gt;</button>
+      <button role="button" (click)="showSourceCode()">
+        <ng-container *ngIf="sourceCode">
+          <span>&lt;</span><span> </span><span>&gt;</span>
+        </ng-container>
+        <ng-container *ngIf="!sourceCode">
+          <span>&lt;</span><span>/</span><span>&gt;</span>
+        </ng-container>
+      </button>
     </div>
-    <div class="example-viewer-source-container">
-      <ng-content select="nd-tabs"></ng-content>
-    </div>
+
     <div class="example-viewer-body-container">
-      <ng-content></ng-content>
+      <ng-content select="nd-example-viewer-body"></ng-content>
+    </div>
+
+    <div class="example-viewer-source-container" *ngIf="sourceCode">
+      <ng-content select="nd-tabs"></ng-content>
     </div>
   </div>
 </div>

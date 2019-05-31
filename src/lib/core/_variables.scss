@@ -3,6 +3,7 @@ $nd-global-background-light: #ffffff;
 $nd-global-background-dark: #000000;
 
 // Breakpoints
+$breakpoint-xxsmall:                            375px !default; // autosize for iphoneX
 $breakpoint-xsmall:                             480px !default;
 $breakpoint-small:                              576px !default;
 $breakpoint-medium:                             768px !default;

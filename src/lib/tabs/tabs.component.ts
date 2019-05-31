@@ -92,6 +92,7 @@ export class NdTabsComponent
   @Input() ndLabelWidth: number;
   @Input() ndLabelSize: TabSize = 'default';
   @Input() ndLabelMode: TabMode = 'auto';
+  @Input() ndLabelColor: string;
   @Input() ndBodyHeight: number;
   @Input() ndBodyWidth: number;
 
@@ -218,7 +219,7 @@ export class NdTabsComponent
 
     this.inkBarEl = this.inkBar['el']; // tslint:disable-line:no-string-literal
     this.setInkBarPosition(this.ndSelectedIndex);
-    this.changeDetectorRef.detectChanges();
+    this.changeDetectorRef.markForCheck();
   }
 
 
@@ -269,17 +270,17 @@ export class NdTabsComponent
     }
   }
 
-  public initLabelHorizontalHeight(): number {
+  public initLabelHorizontalWidth(): number {
     if (this.ndPosition === 'top' || this.ndPosition === 'bottom') {
-      if (this.ndLabelHeight) {
-        return this.ndLabelHeight;
+      if (this.ndLabelWidth) {
+        return this.ndLabelWidth;
       } else {
         if (this.ndLabelSize === 'small') {
-          return 30;
+          return 72;
         } else if (this.ndLabelSize === 'large') {
-          return 56;
+          return 196;
         } else {
-          return 48;
+          return 144;
         }
       }
     }
@@ -296,7 +297,7 @@ export class NdTabsComponent
   private moveHorizontalInkBar(el: HTMLElement, idx: number): void {
     RendererService.updateStyles(this.inkBarEl, {
       left: `${this.calculateInkBarOffsetLeft(idx)}px`,
-      'min-width': `${el.clientWidth}px`
+      'min-width': el.clientWidth === 0 ? `${this.initLabelHorizontalWidth()}px` : `${el.clientWidth}px`
     }, this.renderer);
   }
 
@@ -311,8 +312,13 @@ export class NdTabsComponent
   private moveVerticalInkBar(el: HTMLElement, idx: number): void {
     RendererService.updateStyles(this.inkBarEl, {
       top: `${this.calculateInkBarOffsetTop(idx)}px`,
-      'min-height': `${el.clientHeight > el.children[1].clientHeight ? el.clientHeight : el.children[1].clientHeight}px`
+      // tslint:disable-next-line
+      'min-height': el.clientHeight === 0 ? `${this.initLabelVerticalHeight()}px` : `${el.clientHeight > el.children[1].clientHeight ? el.clientHeight : el.children[1].clientHeight}px`
     }, this.renderer);
+  }
+
+  private initHeaderVerticalHeight(): number {
+    return
   }
 
   private initLabelVerticalHeight(): number {

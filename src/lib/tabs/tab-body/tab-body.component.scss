@@ -5,8 +5,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: $body-margin-top 10px 10px 10px;
-  width: calc(100% - #{$body-padding-x} * 2);
-  @include transition(all .5s ease-in-out);
+  width: 100%;
   overflow: auto;
 }

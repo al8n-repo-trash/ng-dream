@@ -10,6 +10,7 @@ import {
   TemplateRef,
   ViewEncapsulation
 } from '@angular/core';
+import {TabPosition} from '../../core/types/tabs';
 
 @Component({
   selector: 'nd-tab-body',
@@ -24,7 +25,8 @@ export class NdTabBodyComponent implements OnInit, AfterViewInit {
   @Input() active = false;
   @Input() forceRender = false;
   @Input() index: number;
-  @Input() clientWidth: number;
+  @Input() position: TabPosition;
+  @Input() selectIndex: number;
 
   private readonly el: HTMLElement;
 
@@ -41,6 +43,6 @@ export class NdTabBodyComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    this.changeDetectorRef.markForCheck();
   }
 }

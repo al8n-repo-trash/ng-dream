@@ -1,5 +1,4 @@
-<nd-tab-header #header
-               [style.height.px]="(ndPosition === 'left' || ndPosition === 'right') ? el.offsetHeight : null">
+<nd-tab-header #header>
   <nd-tab-label
     *ngFor="let tab of _tabs; let i = index;"
     (click)="tab.ndDisabled ? null : changeLabel(i)"
@@ -37,7 +36,6 @@
       [active]="ndSelectedIndex == i"
       [content]="tab.ndDisabled ? null : tab.content"
       [index]="i"
-      [clientWidth]="(ndPosition === 'top' || ndPosition === 'bottom') ? width : null"
     ></nd-tab-body>
   </div>
 </div>

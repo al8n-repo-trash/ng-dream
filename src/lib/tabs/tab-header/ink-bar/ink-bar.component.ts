@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
+import {TabPosition} from '../../../core/types/tabs';
 
 
 @Component({

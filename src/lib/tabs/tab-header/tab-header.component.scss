@@ -11,6 +11,7 @@
       margin: 0 20px;
     } @else if($position == 'top' or $position == 'bottom') {
       width: 100%;
+      margin-bottom: 10px;
     }
 
     position: relative;
@@ -36,7 +37,10 @@
 
 .nd-tabs-position-bottom {
   @include header-base(top);
-
+  .nd-tab-header {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
 }
 
 .nd-tabs-position-left {
