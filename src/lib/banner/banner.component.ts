@@ -35,7 +35,7 @@ export class NdBannerComponent implements OnInit, OnChanges, AfterViewInit, Afte
   @Input() duration: number = 3000;
   @Input() autoSize: boolean = true;
   @ViewChildren('ndBanners') private ndBannersEl: QueryList<ElementRef<HTMLElement>>;
-  @ViewChild('ndBannerContainer') private ndBannerContainerEl: ElementRef<HTMLElement>;
+  @ViewChild('ndBannerContainer', {static: false}) private ndBannerContainerEl: ElementRef<HTMLElement>;
 
   public currentIndex: number = 0;
   public width: number = 0;

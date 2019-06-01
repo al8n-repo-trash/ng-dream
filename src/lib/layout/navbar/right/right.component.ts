@@ -33,7 +33,7 @@ export class NdNavbarRightComponent implements OnInit, AfterViewInit, OnDestroy 
   @Input() ndNavs: Navs[] = [];
   @Input() ndSearch: boolean = true;
 
-  @ViewChild('navbarMenu') navbarMenuRef: ElementRef;
+  @ViewChild('navbarMenu', {static: false}) navbarMenuRef: ElementRef;
 
   private navbarMenuEl: HTMLElement;
   

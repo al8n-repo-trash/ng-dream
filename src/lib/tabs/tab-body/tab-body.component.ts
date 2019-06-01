@@ -21,7 +21,7 @@ import {TabPosition} from '../../core/types/tabs';
 })
 
 export class NdTabBodyComponent implements OnInit, AfterViewInit {
-  @Input() content: TemplateRef<void>;
+  @Input() content: TemplateRef<void> | null;
   @Input() active = false;
   @Input() forceRender = false;
   @Input() index: number;

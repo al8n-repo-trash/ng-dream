@@ -43,7 +43,7 @@ export class NdTabItemComponent implements OnChanges, OnInit, OnDestroy {
   isActive = false;
 
   private readonly el: HTMLElement;
-  @ViewChild(TemplateRef) content: TemplateRef<void>;
+  @ViewChild(TemplateRef, {static: false}) content: TemplateRef<void>;
   @Input('ndLabel') textLabel: string = ''; // tslint:disable-line:no-input-rename
   @Input() ndDisabled: boolean = false; // tslint:disable-line:no-input-rename
 

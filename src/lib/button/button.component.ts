@@ -28,7 +28,7 @@ export class NdButtonComponent implements AfterViewInit {
   @Input() ndType: NdButtonType = 'default';
   @Input() ndRate: NdRateType = 'default';
   @Input() ndShape: NdShapeType = 'rounded';
-  @ViewChild('rippleContainer') rippleContainer: ElementRef;
+  @ViewChild('rippleContainer', {static: false}) rippleContainer: ElementRef;
 
   private prefix: string = 'nd-button';
   private readonly el: HTMLElement;

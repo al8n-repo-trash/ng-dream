@@ -8,8 +8,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import {BreakpointObserver, BreakpointState, MediaMatcher} from '@angular/cdk/layout';
-import {Breakpoints} from '../core/types/layout';
+import {BreakpointObserver} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 
 
@@ -35,8 +34,8 @@ export class NdLayoutComponent implements OnInit, AfterViewInit, OnChanges, Afte
     this.el = this.elementRef.nativeElement;
   }
 
-  @ViewChild('main') mainEl: ElementRef;
-  @ViewChild('mask') maskEl: ElementRef;
+  @ViewChild('main', {static: false}) mainEl: ElementRef;
+  @ViewChild('mask', {static: false}) maskEl: ElementRef;
 
   ngOnChanges() {
 

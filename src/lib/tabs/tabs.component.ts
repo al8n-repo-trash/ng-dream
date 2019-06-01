@@ -108,7 +108,7 @@ export class NdTabsComponent
   /**
    * header
    */
-  @ViewChild(NdTabHeaderComponent) header: NdTabHeaderComponent;
+  @ViewChild(NdTabHeaderComponent, {static: false}) header: NdTabHeaderComponent;
 
 
   /**
@@ -123,7 +123,7 @@ export class NdTabsComponent
    * ink bar style params
    */
   @Input() ndInkBarColor: string;
-  @ViewChild(NdTabInkBarComponent) inkBar: NdTabInkBarComponent;
+  @ViewChild(NdTabInkBarComponent, {static: false}) inkBar: NdTabInkBarComponent;
   private inkBarEl: HTMLElement;
 
   @ContentChildren(NdTabItemComponent) _tabs: QueryList<NdTabItemComponent>;
@@ -145,6 +145,7 @@ export class NdTabsComponent
   }
 
   ngAfterContentChecked() {
+
     // Don't clamp the `indexToSelect` immediately in the setter because it can happen that
     // the amount of tabs changes before the actual change detection runs.
     const indexToSelect = this._indexToSelect = this._clampTabIndex(this._indexToSelect);
@@ -228,7 +229,9 @@ export class NdTabsComponent
 
     this.inkBarEl = this.inkBar['el']; // tslint:disable-line:no-string-literal
     this.setInkBarPosition(this.ndSelectedIndex);
+
     this.changeDetectorRef.markForCheck();
+    this.changeDetectorRef.detectChanges();
   }
 
 

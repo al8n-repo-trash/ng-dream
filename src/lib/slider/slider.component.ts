@@ -81,10 +81,10 @@ export class NdSliderComponent implements OnChanges, OnDestroy, AfterViewInit {
   @Input() public ndGallery: boolean;
   @Input() public ndGalleryPosition: string;
 
-  @ViewChild('ndSliderSection') private sectionEl: ElementRef<HTMLElement>;
-  @ViewChild('ndSliderContentContainer') private contentEl: ElementRef<HTMLElement>;
-  @ViewChild('ndSmallGallery') private smallGalleryEl: ElementRef<HTMLElement>;
-  @ViewChild('ndSmallGalleryUl') private smallGalleryUlEl: ElementRef<HTMLElement>;
+  @ViewChild('ndSliderSection', {static: false}) private sectionEl: ElementRef<HTMLElement>;
+  @ViewChild('ndSliderContentContainer', {static: false}) private contentEl: ElementRef<HTMLElement>;
+  @ViewChild('ndSmallGallery', {static: false}) private smallGalleryEl: ElementRef<HTMLElement>;
+  @ViewChild('ndSmallGalleryUl', {static: false}) private smallGalleryUlEl: ElementRef<HTMLElement>;
   @ViewChildren('ndSmallGalleryLi') private smallGalleryLiEl: QueryList<ElementRef<HTMLElement>>;
 
   public isDetail: boolean = false;

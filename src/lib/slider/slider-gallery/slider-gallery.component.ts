@@ -14,7 +14,7 @@ import {NdSliderService} from '../../core/service/slider.service';
 export class NdSliderGalleryComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() public ndImageList: string[] | { url: string }[];
   @Input() public ndStyle: object;
-  @ViewChild('ndGallery') gallery: ElementRef<HTMLElement>;
+  @ViewChild('ndGallery', {static: false}) gallery: ElementRef<HTMLElement>;
 
 
   private timerScroll: any;
