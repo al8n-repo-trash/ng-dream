@@ -1,4 +1,9 @@
-<nd-tab-header #header>
+<nd-tab-header #header
+               [class.justify-end]="ndTabAlign === 'end' && (ndPosition === 'top' || ndPosition === 'bottom')"
+               [class.justify-center]="ndTabAlign === 'center' && (ndPosition === 'top' || ndPosition === 'bottom')"
+               [class.align-end]="ndTabAlign === 'end' && (ndPosition === 'right' || ndPosition === 'left')"
+               [class.align-center]="ndTabAlign === 'center' && (ndPosition === 'right' || ndPosition === 'left')"
+>
   <nd-tab-label
     *ngFor="let tab of _tabs; let i = index;"
     (click)="tab.ndDisabled ? null : changeLabel(i)"

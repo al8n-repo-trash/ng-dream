@@ -21,7 +21,7 @@ import {
   Renderer2, ViewChild, ViewChildren,
   ViewEncapsulation
 } from '@angular/core';
-import {TabMode, TabPosition, TabSize} from '../core/types/tabs';
+import {TabAlign, TabMode, TabPosition, TabSize} from '../core/types/tabs';
 import {NdTabItemComponent} from './tab-item/tab-item.component';
 import {NdTabInkBarComponent} from './tab-header/ink-bar/ink-bar.component';
 import {RendererService} from '../core/service/renderer.service';
@@ -37,6 +37,12 @@ export class NdTabChangeEvent {
   /** Reference to the currently-selected tab. */
   tab: NdTabItemComponent;
 }
+
+export const ALIGN_MATCH = {
+  start: 'flex-start',
+  center: 'center',
+  end: 'flex-end'
+};
 
 @Component({
   selector: 'nd-tabs',
@@ -78,7 +84,7 @@ export class NdTabsComponent
   private _tabLabelSubscription = Subscription.EMPTY;
 
   @Input() ndPosition: TabPosition = 'top';
-  // @Input() ndSelectedIndex: number | null = null;
+
 
   /** The index of the active tab. */
   @Input()
@@ -93,6 +99,9 @@ export class NdTabsComponent
   @Input() ndLabelSize: TabSize = 'default';
   @Input() ndLabelMode: TabMode = 'auto';
   @Input() ndLabelColor: string;
+
+  @Input() ndTabAlign: TabAlign;
+
   @Input() ndBodyHeight: number;
   @Input() ndBodyWidth: number;
 

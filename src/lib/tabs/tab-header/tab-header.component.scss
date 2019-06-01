@@ -1,5 +1,13 @@
 @import "../variables";
 
+@mixin tab-header-container-base () {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 /**
   header
  */
@@ -9,25 +17,41 @@
     @if($position == 'right' or $position == 'left') {
       height: 100%;
       margin: 0 20px;
+      align-items: flex-start;
+      justify-content: center;
     } @else if($position == 'top' or $position == 'bottom') {
       width: 100%;
       margin-bottom: 10px;
+      align-items: center;
+      justify-content: flex-start;
     }
 
     position: relative;
+    display: flex;
+
+    border-#{$position}: 1px solid rgba(0,0,0,.12);
+
+
     .nd-tab-list-container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      max-width: 100%;
-      width: inherit;
-      @if($position == 'right' or $position == 'left') {
-        height: 100%;
-      }
-      border-#{$position}: 1px solid rgba(0,0,0,.12);
+      @include tab-header-container-base();
     }
+
+  }
+
+  .justify-end {
+    justify-content: flex-end;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .align-end {
+    align-items: flex-end;
+  }
+
+  .align-center {
+    align-items: center;
   }
 }
 

@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit, QueryList, Renderer2, ViewEncapsulation} from '@angular/core';
 import {NdTabItemComponent} from '../tab-item/tab-item.component';
 
+
 @Component({
   selector: 'nd-tab-header',
   templateUrl: './tab-header.component.html',
