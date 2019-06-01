@@ -19,4 +19,5 @@ export * from './lib/core/ripple/ripple.module';
 export * from './lib/icons/icons.module';
 export * from './lib/avatar/avatar.module';
 export * from './lib/tabs/tabs.module';
+export * from './lib/select/select.module';
 export * from './lib/share/share.module';

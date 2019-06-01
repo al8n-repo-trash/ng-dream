@@ -326,10 +326,6 @@ export class NdTabsComponent
     }, this.renderer);
   }
 
-  private initHeaderVerticalHeight(): number {
-    return
-  }
-
   private initLabelVerticalHeight(): number {
     if (this.ndPosition === 'left' || this.ndPosition === 'right') {
       if (this.ndLabelHeight) {
