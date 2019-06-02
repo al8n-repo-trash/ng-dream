@@ -41,7 +41,7 @@ export class NdBannerComponent implements OnInit, OnChanges, AfterViewInit, Afte
   public width: number = 0;
   public imageList: string[] = [];
   public initialed: boolean = false;
-  private destroyed: boolean = false;
+  private _destroyed: boolean = false;
   public resize: boolean = false;
 
   constructor(
@@ -60,10 +60,6 @@ export class NdBannerComponent implements OnInit, OnChanges, AfterViewInit, Afte
 
   ngAfterViewInit() {
 
-      // this.play();
-
-      // this.dealType();
-
   }
 
   ngAfterViewChecked() {
@@ -71,7 +67,7 @@ export class NdBannerComponent implements OnInit, OnChanges, AfterViewInit, Afte
 
 
   onResize(event) {
-    if (!this.destroyed && !this.resize) {
+    if (!this._destroyed && !this.resize) {
       this.resize = true;
       setTimeout(() => {
         this.width = this.ndBannerContainerEl.nativeElement.clientWidth;
@@ -94,7 +90,7 @@ export class NdBannerComponent implements OnInit, OnChanges, AfterViewInit, Afte
   };
 
   private defineContainerWidth = () => {
-    if (this.destroyed) {
+    if (this._destroyed) {
       return;
     }
 
@@ -141,6 +137,6 @@ export class NdBannerComponent implements OnInit, OnChanges, AfterViewInit, Afte
   };
 
   ngOnDestroy() {
-    this.destroyed = true;
+    this._destroyed = true;
   }
 }

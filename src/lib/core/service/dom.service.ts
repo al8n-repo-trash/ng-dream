@@ -52,10 +52,4 @@ export class DomService {
       }
     }
   }
-
-  // public getChild = (el: HTMLElement, children: any) => {
-  //   for (const key of Object.keys(styles)) {
-  //
-  //   }
-  // }
 }

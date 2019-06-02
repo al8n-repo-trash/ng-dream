@@ -45,7 +45,7 @@ export class NdRippleDirective implements AfterViewInit {
         'box-shadow': 'none',
       };
       RendererService.updateStyles(realEl, styleMap, renderer);
-      RendererService._setAttribute(realEl, {animating: '0'}, renderer);
+      RendererService.setAttribute(realEl, {animating: '0'}, renderer);
     }
   }
 
@@ -163,7 +163,7 @@ export class NdRippleDirective implements AfterViewInit {
     const rippleEl = this.el.querySelector('.nd-ripple-effect') as HTMLElement;
     if (rippleEl.getAttribute('animating') === '1') {
 
-      RendererService._setAttribute(rippleEl, {animating: '2'}, this.renderer);
+      RendererService.setAttribute(rippleEl, {animating: '2'}, this.renderer);
 
       const background = window.getComputedStyle(rippleEl, null).getPropertyValue('background');
       const destinationRadius = e.target.clientWidth + e.target.clientHeight;
@@ -187,11 +187,11 @@ export class NdRippleDirective implements AfterViewInit {
   private rippleRetrieve(e) {
     const rippleEl = this.el.querySelector('.nd-ripple-effect') as HTMLElement;
     if (rippleEl.style.transform === 'translate(-50%, -50%) scale(0)') {
-      RendererService._setAttribute(rippleEl, {animating: '0'}, this.renderer);
+      RendererService.setAttribute(rippleEl, {animating: '0'}, this.renderer);
     }
 
     if (rippleEl.getAttribute('animating') === '1') {
-      RendererService._setAttribute(rippleEl, {animating: '3'}, this.renderer);
+      RendererService.setAttribute(rippleEl, {animating: '3'}, this.renderer);
       const collapseTime = this.ndRippleDuration;
 
       const styleMap = {

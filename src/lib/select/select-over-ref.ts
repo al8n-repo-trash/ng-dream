@@ -10,8 +10,8 @@ export interface SelectOverCloseEvent<T = any> {
 export type OverContent = TemplateRef<any> | Type<any> | string;
 
 export class SelectOverRef<T = any> {
-  private afterClosed = new Subject<SelectOverCloseEvent<T>>();
-  afterClosed$ = this.afterClosed.asObservable();
+  private _afterClosed = new Subject<SelectOverCloseEvent<T>>();
+  afterClosed$ = this._afterClosed.asObservable();
 
   constructor(
     public overlay: OverlayRef,
@@ -29,10 +29,10 @@ export class SelectOverRef<T = any> {
 
   private _close(type: SelectOverCloseEvent['type'], data?: T) {
     this.overlay.dispose();
-    this.afterClosed.next({
+    this._afterClosed.next({
       type,
       data
     });
-    this.afterClosed.complete();
+    this._afterClosed.complete();
   }
 }

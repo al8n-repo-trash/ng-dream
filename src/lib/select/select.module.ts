@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NdSelectComponent } from './select.component';
+import { NdOptionComponent } from './option/option.component';
 
 const COMPONENTS = [
-  NdSelectComponent
+  NdSelectComponent,
+  NdOptionComponent
 ];
 const DIRECTIVES = [];
 
@@ -11,7 +13,7 @@ const DIRECTIVES = [];
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    ...DIRECTIVES
+    ...DIRECTIVES,
   ],
   imports: [
     CommonModule

@@ -16,45 +16,45 @@ export class NdAvatarComponent implements OnInit {
   @Input() ndSize: number | string;
   // @Input() ndStyle: {};
 
-  private readonly el: HTMLElement;
-  private borderRadius: number = 4;
+  private readonly _el: HTMLElement;
+  private _borderRadius: number = 4;
 
   constructor(
-    private elementRef: ElementRef,
-    private renderer: Renderer2
+    private _elementRef: ElementRef,
+    private _renderer: Renderer2
   ) {
-    this.el = this.elementRef.nativeElement;
+    this._el = this._elementRef.nativeElement;
   }
 
   ngOnInit() {
-    this.dealSize();
-    this.dealType();
+    this._dealSize();
+    this._dealType();
   }
 
-  private dealType(): void {
+  private _dealType(): void {
     if (!this.ndType || this.ndType === 'circle') {
       return
     }
 
     if (this.ndType === 'rect') {
-      RendererService.updateStyles(this.el, {'border-radius': 0}, this.renderer);
+      RendererService.updateStyles(this._el, {'border-radius': 0}, this._renderer);
       return;
     }
 
     if (this.ndType === 'rounded') {
-      RendererService.updateStyles(this.el, {'border-radius': `${this.borderRadius}px`}, this.renderer);
+      RendererService.updateStyles(this._el, {'border-radius': `${this._borderRadius}px`}, this._renderer);
       return;
     }
   }
 
-  private dealSize(): void {
+  private _dealSize(): void {
     if (this.ndSize && typeof this.ndSize === 'number') {
-      RendererService.updateStyles(this.el, {width: `${this.ndSize}px`, height: `${this.ndSize}px`}, this.renderer);
+      RendererService.updateStyles(this._el, {width: `${this.ndSize}px`, height: `${this.ndSize}px`}, this._renderer);
       return;
     }
 
     if (this.ndSize && typeof this.ndSize === 'string') {
-      RendererService.updateStyles(this.el, {width: this.ndSize, height: this.ndSize}, this.renderer);
+      RendererService.updateStyles(this._el, {width: this.ndSize, height: this.ndSize}, this._renderer);
       return;
     }
   }

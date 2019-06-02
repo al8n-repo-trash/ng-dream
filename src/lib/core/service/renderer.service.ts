@@ -15,7 +15,7 @@ import {AttributeMap, StyleMap} from '../types/renderer';
 export class RendererService {
   private readonly renderer: Renderer2;
 
-  public static _addlistener(
+  public static addlistener(
     el: HTMLElement | ElementRef | Document | Window | Body,
     event: string,
     callback: (event: any) => (boolean | void),
@@ -27,7 +27,7 @@ export class RendererService {
 
   }
   
-  public static _removeAttribute(
+  public static removeAttribute(
     el: HTMLElement | ElementRef | EventTarget, 
     attr: AttributeMap,
     renderer: Renderer2
@@ -41,7 +41,7 @@ export class RendererService {
     }
   }
   
-  public static _setAttribute(el: HTMLElement | ElementRef | EventTarget, attr: AttributeMap, renderer: Renderer2): void {
+  public static setAttribute(el: HTMLElement | ElementRef | EventTarget, attr: AttributeMap, renderer: Renderer2): void {
     const realEl = RendererService._toEl(el);
 
     for (const i in attr) {

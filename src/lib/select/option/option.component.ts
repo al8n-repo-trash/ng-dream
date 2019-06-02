@@ -1,15 +1,16 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'nd-select',
-  exportAs: 'ndSelect',
-  templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss'],
+  selector: 'nd-option',
+  exportAs: 'ndOption',
+  templateUrl: './option.component.html',
+  styleUrls: ['./option.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NdSelectComponent implements OnInit {
-  
+
+export class NdOptionComponent implements OnInit {
+
   constructor() { }
 
   ngOnInit() {
