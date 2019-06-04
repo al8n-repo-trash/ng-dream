@@ -9,7 +9,7 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@an
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NdSelectComponent implements OnInit {
-  
+
   constructor() { }
 
   ngOnInit() {

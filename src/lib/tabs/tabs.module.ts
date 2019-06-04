@@ -11,11 +11,6 @@ import {NdRippleModule} from '../core/ripple/ripple.module';
 
 const COMPONENTS = [
   NdTabsComponent,
-  NdTabHeaderComponent,
-  NdTabListComponent,
-  NdTabLabelComponent,
-  NdTabInkBarComponent,
-  NdTabBodyComponent,
   NdTabItemComponent
 ];
 
@@ -23,6 +18,11 @@ const DIRECTIVES = [];
 
 @NgModule({
   declarations: [
+    NdTabHeaderComponent,
+    NdTabListComponent,
+    NdTabLabelComponent,
+    NdTabInkBarComponent,
+    NdTabBodyComponent,
     ...COMPONENTS,
     ...DIRECTIVES
   ],
