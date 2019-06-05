@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ALiuGuanyan All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/ALiuGuanyan/ng-dream/LICENSE
+ */
+
 import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {AvatarType} from '../core/types/avatar';
 import {RendererService} from '../core/service/renderer.service';

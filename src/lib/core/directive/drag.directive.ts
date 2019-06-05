@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ALiuGuanyan All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/ALiuGuanyan/ng-dream/LICENSE
+ */
+
 import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
 import {DragType} from '../types/drag-drop';
 import {DragDropService} from './drag-drop.service';

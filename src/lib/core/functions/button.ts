@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ALiuGuanyan All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/ALiuGuanyan/ng-dream/LICENSE
+ */
+
 import {Renderer2} from '@angular/core';
 import {NdButtonType, NdRateType, NdShapeType} from '../types/button';
 import {RendererService} from '../service/renderer.service';

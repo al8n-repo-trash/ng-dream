@@ -3,7 +3,7 @@
  * Copyright ALiuGuanyan All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://dreamui.io/license
+ * found in the LICENSE file at https://github.com/ALiuGuanyan/ng-dream/LICENSE
  */
 
 import {AfterViewInit, Directive, ElementRef, HostListener, Input, NgZone, OnInit, Renderer2} from '@angular/core';

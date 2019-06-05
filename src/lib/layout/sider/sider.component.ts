@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ALiuGuanyan All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/ALiuGuanyan/ng-dream/LICENSE
+ */
+
 import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnDestroy, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {BreakpointObserver, BreakpointState} from '@angular/cdk/layout';
 import {Breakpoints, BreakpointType, CustomBreakpoint} from '../../core/types/layout';
