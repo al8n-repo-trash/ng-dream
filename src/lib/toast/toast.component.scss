@@ -1,5 +1,5 @@
 @import "varibles";
-
+@import "~@angular/cdk/overlay";
 // We want overlays to always appear over user content, so set a baseline
 // very high z-index for the overlay container, which is where we create the new
 // stacking context for all overlays.
@@ -46,6 +46,16 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   }
 }
 
+::ng-deep {
+  @include cdk-overlay;
+  .cdk-global-overlay-wrapper {
+    height: auto;
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+}
+
 ::ng-deep .cdk-overlay-container {
   // Disable events from being captured on the overlay container.
   pointer-events: none;
@@ -84,7 +94,7 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 10px 20px;
   width: 300px;
   background: #fff;

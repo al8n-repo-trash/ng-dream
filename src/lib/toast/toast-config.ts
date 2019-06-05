@@ -1,5 +1,7 @@
 import {InjectionToken} from '@angular/core';
 import {StyleMap} from '../core/types/renderer';
+import {Subject} from 'rxjs';
+import {ToastOverlayRef} from './overlay-ref';
 
 export interface CustomConfig {
   ndAnimation?: boolean,
@@ -26,6 +28,11 @@ export type FromFuncType = 'primary' | 'info' | 'secondary' | 'loading' | 'dange
 
 export class FromFunc {
   function: FromFuncType;
+}
+
+export interface ToastSubject {
+  toastOverlayRef: ToastOverlayRef,
+  onClose?: Subject<boolean>
 }
 
 export interface ToastConfig {

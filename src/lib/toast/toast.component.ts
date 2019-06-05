@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostBinding, Inject, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {FromFunc, TOAST_CONFIG_TOKEN, ToastConfig, ToastData} from './toast-config';
 import {ToastOverlayRef} from './overlay-ref';
 import {toastAnimations, ToastAnimationState} from './toast-animation';
@@ -21,14 +21,6 @@ export class NdToastComponent implements OnInit, OnDestroy, AfterViewInit {
   private _startTime: number;
 
   @HostBinding('class.nd-toast-default') private default: boolean = this.toastData.config.ndType === 'default';
-
-
-
-  @HostListener('mouseleave', ['$event']) leave(e: MouseEvent) {
-    if (this.toastData.config.ndPauseOnHover && this.toastData.config.ndDuration !== 'infinite') {
-      // this._intervalId = setTimeout(() => {}, )
-    }
-  };
 
   @ViewChild('toast', {static: false}) private _toastContent: ElementRef;
 
@@ -62,6 +54,7 @@ export class NdToastComponent implements OnInit, OnDestroy, AfterViewInit {
         this._existTime = +new Date() - this._startTime;
         clearTimeout(this._intervalId);
       }, this._renderer);
+
       RendererService.addlistener(this._toastContent, 'mouseleave', () => {
         this._startTime = +new Date();
         const newDuration: number = (this.toastData.config.ndDuration as any) - this._existTime;
