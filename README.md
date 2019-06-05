@@ -14,7 +14,7 @@ Because the reputation rule on stack overflow, ng-dream do not have proprietary 
 因为声望规则，我们很遗憾的不能在stack overflow上创建属于自己的标签，但是您仍可以在stack overflow上发布ng-dream的相关问题。
 <br>
 
-**Official site** https://angular.dreamui.io <br> 
-**官方网站**    https://angular.dreamui.io <br>
+**Official site** https://angular.dreamui.io 暂未开放<br> 
+**官方网站**    https://angular.dreamui.io 暂未开放<br>
 **微信交流群** <br>
 **QQ交流群**
