@@ -14,6 +14,38 @@ $cdk-overlay-dark-backdrop-background: rgba(0, 0, 0, 0.32) !default;
 $backdrop-animation-duration: 400ms !default;
 $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
 
+@mixin toast-secondary-type ($background, $color) {
+  background: $background;
+  color: $color;
+  box-shadow: 0 2px 3px rgba($color, .08), 0 0 5px rgba($color,.12);
+}
+
+@mixin toast-default {
+  .nd-toast-success {
+    @include toast-secondary-type($nd-toast-default-success-background, $nd-toast-default-success-color);
+  }
+
+  .nd-toast-info {
+    @include toast-secondary-type($nd-toast-default-info-background, $nd-toast-default-info-color);
+  }
+
+  .nd-toast-danger {
+    @include toast-secondary-type($nd-toast-default-danger-background, $nd-toast-default-danger-color);
+  }
+
+  .nd-toast-primary {
+    @include toast-secondary-type($nd-toast-default-primary-background, $nd-toast-default-primary-color);
+  }
+
+  .nd-toast-warning {
+    @include toast-secondary-type($nd-toast-default-warning-background, $nd-toast-default-warning-color);
+  }
+
+  .nd-toast-forbidden {
+    @include toast-secondary-type($nd-toast-default-forbidden-background, $nd-toast-default-forbidden-color);
+  }
+}
+
 ::ng-deep .cdk-overlay-container {
   // Disable events from being captured on the overlay container.
   pointer-events: none;
@@ -23,6 +55,10 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   left: 0;
   height: 100%;
   width: 100%;
+
+  .nd-toast-default {
+    @include toast-default;
+  }
 
 }
 
@@ -53,14 +89,12 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   width: 300px;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 2px 3px rgba($nd-toast-success-color, .08), 0 0 5px rgba($nd-toast-success-color,.12);
+
   font: {
     size: 14px;
     family: $nd-global-font-family-1;
     weight: 600;
   }
-
-
 
   .nd-toast-message {
     flex: 1 1 auto;
@@ -77,7 +111,6 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   }
 }
 
-.nd-toast-success {
-  background: $nd-toast-success-background;
-  color: $nd-toast-success-color;
-}
+
+
+

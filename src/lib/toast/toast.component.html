@@ -1,9 +1,11 @@
 
-<div class="nd-toast"
+<div #toast class="nd-toast"
      [class.nd-toast-success]="fromFunc.function === 'success'"
      [class.nd-toast-info]="fromFunc.function === 'info'"
      [class.nd-toast-warning]="fromFunc.function === 'warning'"
      [class.nd-toast-danger]="fromFunc.function === 'danger'"
+     [class.nd-toast-primary]="fromFunc.function === 'primary'"
+     [class.nd-toast-forbidden]="fromFunc.function === 'forbidden'"
      [@fadeAnimation]="{value: animationState, params:
         { fadeIn: toastConfig.animation.fadeIn, fadeOut: toastConfig.animation.fadeOut }}"
      (@fadeAnimation.done)="onFadeFinished($event)">

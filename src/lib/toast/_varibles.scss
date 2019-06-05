@@ -1,4 +1,19 @@
 @import "../core/variables";
 
-$nd-toast-success-background: #d4edda !default;
-$nd-toast-success-color: #155724 !default;
+$nd-toast-default-primary-background: #bbdefb !default;
+$nd-toast-default-primary-color: #1565c0 !default;
+
+$nd-toast-default-warning-background: #ffecb3 !default;
+$nd-toast-default-warning-color: #ff8f00 !default;
+
+$nd-toast-default-success-background: #d4edda !default;
+$nd-toast-default-success-color: #155724 !default;
+
+$nd-toast-default-info-background: #B2EBF2 !default;
+$nd-toast-default-info-color: #00838f !default;
+
+$nd-toast-default-danger-background: #ffcdd2 !default;
+$nd-toast-default-danger-color: #c62828 !default;
+
+$nd-toast-default-forbidden-background: #9e9e9e !default;
+$nd-toast-default-forbidden-color: #424242 !default;

@@ -13,7 +13,7 @@ import {AttributeMap, StyleMap} from '../types/renderer';
 })
 
 export class RendererService {
-  private readonly renderer: Renderer2;
+  private readonly _renderer: Renderer2;
 
   public static addlistener(
     el: HTMLElement | ElementRef | Document | Window | Body,
@@ -23,7 +23,7 @@ export class RendererService {
     
     const realEl = RendererService._toEl(el);
     
-    renderer.listen(el, event, callback);
+    renderer.listen(realEl, event, callback);
 
   }
   
@@ -144,7 +144,7 @@ export class RendererService {
   constructor(
     rendererFactory2: RendererFactory2,
   ) {
-    this.renderer = rendererFactory2.createRenderer(null, null);
+    this._renderer = rendererFactory2.createRenderer(null, null);
   }
 
 }

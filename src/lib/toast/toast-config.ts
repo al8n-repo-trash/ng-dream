@@ -1,33 +1,24 @@
 import {InjectionToken} from '@angular/core';
 import {StyleMap} from '../core/types/renderer';
 
-interface CustomConfig {
+export interface CustomConfig {
+  ndAnimation?: boolean,
+  ndClose?: boolean,
   ndDuration?: number | 'infinite',
   ndMaxStack?: number,
-  ndAnimation?: boolean,
-  ndPosition?: 'right' | 'center' | 'left',
   ndPauseOnHover?: boolean,
-  ndClose?: boolean,
+  ndPosition?: ToastPosition,
   ndStyle?: StyleMap,
-  ndTop?: number
+  ndTop?: number,
+  ndType?: ToastType;
 }
 
 export class ToastData {
   text?: string;
-  type?: ToastType = 'default';
   config?: CustomConfig;
 }
 
-export const DEFAULT_CUSTOM_CONFIG = {
-  ndAnimation: true,
-  ndDuration: 5000,
-  ndPosition: 'center',
-  ndPauseOnHover: true,
-  ndClose: false,
-  ndMaxStack: 5,
-  ndStyle: {},
-  ndTop: 80
-};
+export type ToastPosition = 'right' | 'center' | 'left';
 
 export type ToastType = 'border' | 'default' | 'ghost';
 
@@ -37,15 +28,7 @@ export class FromFunc {
   function: FromFuncType;
 }
 
-export class ToastMaxStack {
-  maxStack: number;
-}
-
 export interface ToastConfig {
-  position?: {
-    top: number;
-    right: number;
-  };
   animation?: {
     fadeOut: number;
     fadeIn: number;
@@ -53,10 +36,6 @@ export interface ToastConfig {
 }
 
 export const DefaultToastConfig: ToastConfig = {
-  position: {
-    top: 20,
-    right: 20,
-  },
   animation: {
     fadeOut: 2500,
     fadeIn: 300,
