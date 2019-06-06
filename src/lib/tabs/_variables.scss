@@ -1,6 +1,6 @@
 @import "../core/variables";
 @import "../core/vendor-prefixes";
-@import "~@angular/cdk/a11y";
+@import "../core/cdk-style/a11y";
 
 $tabs-container-min-width: 744px !default;
 $tabs-container-min-width-s: 552px !default;

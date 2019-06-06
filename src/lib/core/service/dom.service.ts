@@ -14,8 +14,15 @@ import {ElementRef, Injectable, Renderer2} from '@angular/core';
 })
 export class DomService {
 
-  constructor() { }
+  public static setStyles = (el: HTMLElement, styles: object) => {
+    for (const key of Object.keys(styles)) {
+      if (styles.hasOwnProperty(key)) {
+        el.style[key] = styles[key];
+      }
+    }
+  };
 
+  constructor() { }
 
   public getElement = (elementRef: ElementRef): HTMLElement => {
     return elementRef.nativeElement;
@@ -53,11 +60,5 @@ export class DomService {
     renderer.setStyle(el, attr, val);
   };
 
-  public setStyles = (el: HTMLElement, styles: object) => {
-    for (const key of Object.keys(styles)) {
-      if (styles.hasOwnProperty(key)) {
-        el.style[key] = styles[key];
-      }
-    }
-  }
+
 }

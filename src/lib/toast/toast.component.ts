@@ -15,17 +15,18 @@ import {RendererService} from '../core/service/renderer.service';
 })
 
 export class NdToastComponent implements OnInit, OnDestroy, AfterViewInit {
-  animationState: ToastAnimationState = 'default';
+  public animationState: ToastAnimationState = 'default';
   private _intervalId: any;
   private _existTime: number;
   private _startTime: number;
 
-  @HostBinding('class.nd-toast-default') private default: boolean = this.toastData.config.ndType === 'default';
+  @HostBinding('class.nd-toast-alert') public alert: boolean = this.toastData.config.ndType === 'alert';
+  @HostBinding('class.nd-toast-normal') public normal: boolean = this.toastData.config.ndType === 'normal';
 
   @ViewChild('toast', {static: false}) private _toastContent: ElementRef;
 
   constructor(
-    private _renderer: Renderer2,
+    public renderer: Renderer2,
     readonly toastData: ToastData,
     readonly fromFunc: FromFunc,
     readonly toastOverlayRef: ToastOverlayRef,
@@ -53,14 +54,14 @@ export class NdToastComponent implements OnInit, OnDestroy, AfterViewInit {
       RendererService.addlistener(this._toastContent, 'mouseenter', () => {
         this._existTime = +new Date() - this._startTime;
         clearTimeout(this._intervalId);
-      }, this._renderer);
+      }, this.renderer);
 
       RendererService.addlistener(this._toastContent, 'mouseleave', () => {
         this._startTime = +new Date();
         const newDuration: number = (this.toastData.config.ndDuration as any) - this._existTime;
         this._intervalId = setTimeout(() => this.animationState = 'closing', newDuration);
         this._existTime = undefined;
-      }, this._renderer);
+      }, this.renderer);
     }
   }
 
@@ -68,7 +69,7 @@ export class NdToastComponent implements OnInit, OnDestroy, AfterViewInit {
     this.toastOverlayRef.close();
   }
 
-  onFadeFinished(event: AnimationEvent) {
+  onFadeFinished(event: any) {
     const { toState } = event;
     const isFadeOut = (toState as ToastAnimationState) === 'closing';
     const itFinished = this.animationState === 'closing';

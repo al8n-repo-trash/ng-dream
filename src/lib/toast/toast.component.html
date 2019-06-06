@@ -6,6 +6,7 @@
      [class.nd-toast-danger]="fromFunc.function === 'danger'"
      [class.nd-toast-primary]="fromFunc.function === 'primary'"
      [class.nd-toast-forbidden]="fromFunc.function === 'forbidden'"
+     [class.nd-toast-normal]="fromFunc.function === 'normal'"
      [@fadeAnimation]="{value: animationState, params:
         { fadeIn: toastConfig.animation.fadeIn, fadeOut: toastConfig.animation.fadeOut }}"
      (@fadeAnimation.done)="onFadeFinished($event)">

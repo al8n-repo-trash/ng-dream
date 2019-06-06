@@ -1,5 +1,6 @@
 @import "varibles";
-@import "~@angular/cdk/overlay";
+@import "../core/cdk-style/overlay";
+
 // We want overlays to always appear over user content, so set a baseline
 // very high z-index for the overlay container, which is where we create the new
 // stacking context for all overlays.
@@ -14,35 +15,77 @@ $cdk-overlay-dark-backdrop-background: rgba(0, 0, 0, 0.32) !default;
 $backdrop-animation-duration: 400ms !default;
 $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
 
-@mixin toast-secondary-type ($background, $color) {
+@mixin toast-secondary-type-normal ($color) {
+  border: 2px solid $color;
+  color: $color;
+}
+
+@mixin toast-normal {
+  .nd-toast-normal {
+    @include toast-secondary-type-normal(black);
+    color: $nd-font-color-normal;
+  }
+
+  .nd-toast-success {
+    @include toast-secondary-type-normal($nd-toast-default-success-color);
+  }
+
+  .nd-toast-info {
+    @include toast-secondary-type-normal($nd-toast-default-info-color);
+  }
+
+  .nd-toast-danger {
+    @include toast-secondary-type-normal($nd-toast-default-danger-color);
+  }
+
+  .nd-toast-primary {
+    @include toast-secondary-type-normal($nd-toast-default-primary-color);
+  }
+
+  .nd-toast-warning {
+    @include toast-secondary-type-normal($nd-toast-default-warning-color);
+  }
+
+  .nd-toast-forbidden {
+    @include toast-secondary-type-normal(rgba($nd-toast-default-forbidden-color, .4));
+    color: rgba($nd-toast-default-forbidden-color, .7);
+  }
+}
+
+@mixin toast-secondary-type-alert ($background, $color) {
   background: $background;
   color: $color;
   box-shadow: 0 2px 3px rgba($color, .08), 0 0 5px rgba($color,.12);
 }
 
-@mixin toast-default {
+@mixin toast-alert {
+  .nd-toast-normal {
+    @include toast-secondary-type-alert(white, black);
+    color: $nd-font-color-normal;
+  }
+
   .nd-toast-success {
-    @include toast-secondary-type($nd-toast-default-success-background, $nd-toast-default-success-color);
+    @include toast-secondary-type-alert($nd-toast-default-success-background, $nd-toast-default-success-color);
   }
 
   .nd-toast-info {
-    @include toast-secondary-type($nd-toast-default-info-background, $nd-toast-default-info-color);
+    @include toast-secondary-type-alert($nd-toast-default-info-background, $nd-toast-default-info-color);
   }
 
   .nd-toast-danger {
-    @include toast-secondary-type($nd-toast-default-danger-background, $nd-toast-default-danger-color);
+    @include toast-secondary-type-alert($nd-toast-default-danger-background, $nd-toast-default-danger-color);
   }
 
   .nd-toast-primary {
-    @include toast-secondary-type($nd-toast-default-primary-background, $nd-toast-default-primary-color);
+    @include toast-secondary-type-alert($nd-toast-default-primary-background, $nd-toast-default-primary-color);
   }
 
   .nd-toast-warning {
-    @include toast-secondary-type($nd-toast-default-warning-background, $nd-toast-default-warning-color);
+    @include toast-secondary-type-alert($nd-toast-default-warning-background, $nd-toast-default-warning-color);
   }
 
   .nd-toast-forbidden {
-    @include toast-secondary-type($nd-toast-default-forbidden-background, $nd-toast-default-forbidden-color);
+    @include toast-secondary-type-alert($nd-toast-default-forbidden-background, $nd-toast-default-forbidden-color);
   }
 }
 
@@ -66,8 +109,12 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   height: 100%;
   width: 100%;
 
-  .nd-toast-default {
-    @include toast-default;
+  .nd-toast-alert {
+    @include toast-alert;
+  }
+
+  .nd-toast-normal {
+    @include toast-normal;
   }
 
 }
@@ -84,10 +131,6 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   }
 }
 
-
-
-
-
 .nd-toast {
   position: relative;
   display: flex;
@@ -96,7 +139,7 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   align-items: center;
   margin: 10px auto;
   padding: 10px 20px;
-  width: 300px;
+  width: 260px;
   background: #fff;
   border-radius: 4px;
 
@@ -111,6 +154,9 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   }
 
   nd-icon {
+    position: absolute;
+    top: 11px;
+    right: 10px;
     cursor: pointer;
     font-size: inherit;
 

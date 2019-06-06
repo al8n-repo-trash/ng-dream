@@ -9,7 +9,7 @@ export interface CustomConfig {
   ndDuration?: number | 'infinite',
   ndMaxStack?: number,
   ndPauseOnHover?: boolean,
-  ndPosition?: ToastPosition,
+  ndPosition?: ToastPostionConfig,
   ndStyle?: StyleMap,
   ndTop?: number,
   ndType?: ToastType;
@@ -20,11 +20,13 @@ export class ToastData {
   config?: CustomConfig;
 }
 
+export type ToastPostionConfig = ToastPosition | {position: ToastPosition, distance?: number};
+
 export type ToastPosition = 'right' | 'center' | 'left';
 
-export type ToastType = 'border' | 'default' | 'ghost';
+export type ToastType = 'alert' | 'normal';
 
-export type FromFuncType = 'primary' | 'info' | 'secondary' | 'loading' | 'danger' | 'warning' | 'success' | 'forbidden';
+export type FromFuncType = 'primary' | 'info' | 'secondary' | 'loading' | 'danger' | 'warning' | 'success' | 'forbidden' | 'normal';
 
 export class FromFunc {
   function: FromFuncType;
