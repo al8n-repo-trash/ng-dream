@@ -1,0 +1,81 @@
+@import "../../core/variables";
+@import "../../core/vendor-prefixes";
+
+$select-icon-size: 12px !default;
+$select-color: rgba(0,0,0, .54) !default;
+
+@mixin select-icon-base($status) {
+  position: relative;
+  width: $select-icon-size;
+  height: $select-icon-size;
+  padding-right: 5px;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: $select-icon-size / 2 solid transparent;
+    border-right: $select-icon-size / 2 solid transparent;
+    border-radius: 2px;
+    transition: all .2s linear;
+
+    @if($status == 'down') {
+      border-top: $select-icon-size / 2 solid $select-color;
+    } @else {
+      border-bottom: $select-icon-size / 2 solid $select-color;
+    }
+  }
+}
+
+.nd-select-line {
+  position: relative;
+  width: 300px;
+  height: 28px;
+  padding: 5px 5px 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid black;
+  color: $select-color;
+  cursor: pointer;
+
+  .nd-select-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: inherit;
+    height: 100%;
+
+    .nd-select-text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex: 1 1 auto;
+      font: {
+        size: 14px;
+        family: $nd-global-font-family-1;
+      }
+    }
+
+    .nd-select-icon {
+      @include select-icon-base(down);
+    }
+
+    .nd-select-icon-open {
+      @include select-icon-base(up);
+    }
+  }
+
+
+  .nd-option-list {
+    width: inherit;
+
+  }
+}

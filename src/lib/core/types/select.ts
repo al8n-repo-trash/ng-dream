@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://github.com/ALiuGuanyan/ng-dream/LICENSE
  */
 
-import {OverContent} from '../../select/select-over-ref';
+import {OverContent} from '../../form/select/select-over-ref';
 
 export type OverParams<T> = {
   origin: HTMLElement;
@@ -15,3 +15,5 @@ export type OverParams<T> = {
   width?: string | number;
   height: string | number;
 };
+
+export type NdSelectType = 'line' | 'border' | 'default';

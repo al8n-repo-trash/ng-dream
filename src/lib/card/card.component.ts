@@ -67,7 +67,7 @@ export class NdCardComponent implements OnInit, AfterViewInit {
     }
 
     if (this.ndStyle) {
-      this.domService.setStyles(this.el, this.ndStyle);
+      DomService.setStyles(this.el, this.ndStyle);
     }
 
   }

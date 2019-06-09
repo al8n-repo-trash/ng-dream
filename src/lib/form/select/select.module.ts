@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NdSelectComponent } from './select.component';
 import { NdOptionComponent } from './option/option.component';
+import {FormsModule} from '@angular/forms';
 
 const COMPONENTS = [
   NdSelectComponent,
@@ -16,7 +17,8 @@ const DIRECTIVES = [];
     ...DIRECTIVES,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ...COMPONENTS,

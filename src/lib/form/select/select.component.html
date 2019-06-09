@@ -1,0 +1,10 @@
+<div class="nd-select-container"
+     (click)="openOptionList()">
+  <span class="nd-select-text">{{currentValue}}</span>
+  <span
+    [class.nd-select-icon]="!isOpen"
+    [class.nd-select-icon-open]="isOpen"
+  >
+  </span>
+</div>
+
